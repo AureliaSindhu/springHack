@@ -28,7 +28,7 @@ html, body{
   justify-content: space-between;
   flex-wrap: nowrap;
   top: 0;
-  padding: 1vh 8vh;
+  /* padding: 1vh 8vh; */
   color: var(--text);
 
   border-bottom: solid var(--ter);
