@@ -20,9 +20,9 @@ function App() {
           <img src={logo} className="App-logo" alt="logo" />
 
           <DropdownButton id="dropdown-basic-button" title="Our Features">
-            <Dropdown.Item href="#/action-1">option1</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">option2</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">option3</Dropdown.Item>
+            <Dropdown.Item href="#/action-1">personalized quiz</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">personalized study plan</Dropdown.Item>
+            {/* <Dropdown.Item href="#/action-3">option3</Dropdown.Item> */}
           </DropdownButton>
         </div>
       
@@ -49,8 +49,16 @@ function App() {
 
       <div className="product">
         {/* product vid  */}
+        <p> make my own ... </p>
+        <div className="options">
+            <p> study plan</p>
+            <p> qiz </p>
+        </div>
       </div>
 
+      <div className="footer"> 
+        <div class="credit">&copy; <span id="currentYear"></span> by <span> CSS Qiz</span> | All Rights Reserved</div>
+      </div>
     </div>
   );
 }
