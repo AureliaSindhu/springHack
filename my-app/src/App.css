@@ -1,0 +1,45 @@
+:root{
+  --text: #ffff;
+  --pri:#f5ede2;
+  --sec: #6fb9ee;
+  --ter: #008cf2;
+  --line: #79736B;
+  --background: #292621;
+}
+
+html, body{
+  background: var(--background);
+}
+
+.App {
+  background-color: var(--background);
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text);
+}
+
+
+.navBar {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  top: 0;
+  padding: 1vh 8vh;
+  color: var(--text);
+
+  border-bottom: solid var(--ter);
+  border-image: linear-gradient(to right, var(--ter), var(--sec));
+  border-image-slice: 1;
+}
+
+.left img{
+  height: 75px;
+}
+
+.left, .right{
+  display: inline-flex;
+}
