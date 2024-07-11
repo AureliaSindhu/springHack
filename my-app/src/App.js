@@ -1,8 +1,8 @@
 import React from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-// import Dropdown from 'react-bootstrap/Dropdown';
-// import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 import logo from './pics/logo.png';
 import qiz from './pics/homeicon.png';
@@ -19,11 +19,11 @@ function App() {
         <div className="left">
           <img src={logo} className="App-logo" alt="logo" />
 
-          {/* <DropdownButton id="dropdown-basic-button" title="Our Features">
+          <DropdownButton id="dropdown-basic-button" title="Our Features">
             <Dropdown.Item href="#/action-1">option1</Dropdown.Item>
             <Dropdown.Item href="#/action-2">option2</Dropdown.Item>
             <Dropdown.Item href="#/action-3">option3</Dropdown.Item>
-          </DropdownButton> */}
+          </DropdownButton>
         </div>
       
 
@@ -35,9 +35,9 @@ function App() {
 
       <div className="homePage">
         {/* image and floating stuffys*/}
-          <img src={bubble1} className="bubble1" alt="bubble-1" />
+          <img src={bubble2} className="bubble2" alt="bubble-1" />
           <img src={qiz} className="home-logo" alt="home-icon" />
-          <img src={bubble2} className="bubble2" alt="bubble-2" />
+          <img src={bubble1} className="bubble1" alt="bubble-2" />
         <div className="generate">
           <button> Generate Qiz </button>
         </div>
