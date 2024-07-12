@@ -6,7 +6,7 @@
   --pri:#f5ede2;
   --sec: #6fb9ee;
   --ter: #008cf2;
-  --line: #79736B;
+  --grey: #292621;
   --background: #292621;
 }
 
@@ -23,6 +23,9 @@ html, body{
   color: var(--text);
 }
 
+.App-logo {
+  margin-left: 20px;
+}
 
 .navBar {
   display: flex;
@@ -37,7 +40,6 @@ html, body{
   border-bottom: solid var(--ter);
   border-image: linear-gradient(to right, var(--sec), var(--ter));
   border-image-slice: 1;
-
   font-size: 20px;
   
 }
@@ -75,18 +77,22 @@ html, body{
   font-family: "Outfit", sans-serif;
 }
 
+.home-logo {
+  margin-top: 50px;
 
+}
 
 .generate {
-  display: block;
+  display: flex;
   align-content: center;
   justify-content: center;
   padding: 40px;
 }
 
 .generate button {
-  width: 300px;
-  height: 60px;
+  width: 280px;
+  margin-top: 0;
+  height: 70px;
   font-size: 30px;
   font-weight: 400;
   font-family: "Outfit";
@@ -95,7 +101,164 @@ html, body{
   background-color: var(--sec);
   border: none;
   box-shadow: 0 0 10px 0.5px var(--ter);
+  margin: 0;
+  padding-bottom: 15px;
   
+
+}
+
+.generate button:hover {
+  cursor: pointer;
+}
+
+.generate button:after {
+  content: '';
+  background-image: url("./pics/q-logo.png");
+  background-repeat: no-repeat;
+  width: 35px;
+  height: 40px;
+  display: inline-block;
+
+  background-size: cover;
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  margin-left: 0;
+
+}
+
+.generate button:active {
+  box-shadow: 0 0 25px 0.5px var(--ter);
+  transform: translateY(4px);
+  background-color: var(--ter)
+}
+
+.tagline {
+  display: block;
+  /* top: 10px; */
+  font-family: 'Monomaniac One';
+  font-size: 60px;
+  margin-top: 0;
+  padding: 0;
+}
+
+.tagline > * {
+  margin: 0;
+}
+
+.qiz-text {
+  color: var(--ter);
+}
+
+.ace-text {
+  color: var(--sec);
+}
+
+.product {
+  display: flex;
+  background-image: url('./pics/aboutus.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  /* width: 100%; */
+  margin: 0;
+  align-content: center;
+  
+}
+
+.vid-frame {
+  margin: auto;
+  margin-top: 200px; 
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65vh;
+  border: solid white;
+  width: 75vw;
+  border-radius: 30px;
+  /* border-image: linear-gradient(to right, var(--sec), var(--ter));
+   */
+  background-image: linear-gradient(var(--background), var(--background)),
+    linear-gradient(to right, var(--sec), var(--ter));
+  border: double 5px transparent;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+ 
+}
+
+.howto {
+
+  height: 97vh;
+  background-image: url('./pics/howto.png');
+
+  text-align: left;
+}
+.howto > * {
+  margin: 0;
+  padding: 0;
+}
+
+.howto h1 {
+  font-family: 'Outfit';
+  font-size: 60px;
+  margin-left: 150px;
+  /* margin-top: 40px; */
+  font-weight: 500;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  justify-content: center;
+  align-content: center;
+}
+.card {
+  display: flex;
+  height: 70vh;
+  /* border: solid white; */
+  width: 35vw;
+  margin: 50px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: var(--grey);
+  align-self: center;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 0 0 15px rgb(97, 95, 95) inset;
+  transform: translateY(5px);
+}
+
+.inner-border {
+  display: flex;
+  flex-direction: row;
+  border: solid var(--ter);
+  border-radius: 10px;
+  height: 60vh;
+  width: 30vw;
+  margin: auto;
+  padding: 0;
+  /* text-align: center; */
+}
+
+.inner-border > * {
+  margin-top: 180px;
+  padding: 0;
+}
+
+.footer {
+  display: block;
+  padding: 0;
+  margin: 0;
+  font-family: "Outfit", 'sans serif';
+  font-size: 20px;
+  align-content: center;
+  justify-content: center;
+  background-color: var(--ter);
+  height: 60px;
 }
 
 

@@ -8,7 +8,7 @@ import logo from './pics/logo.png';
 import qiz from './pics/homeicon.png';
 import bubble1 from './pics/bubbleOne.png';
 import bubble2 from './pics/bubbleTwo.png';
-import magnifying from './pics/magnifying.png';
+import qLogo from './pics/q-logo.png';
 
 import './App.css';
 
@@ -42,16 +42,34 @@ function App() {
           <img src={bubble2} className="bubble2" alt="bubble-2" />
         <div className="generate">
           <button> Generate Qiz </button>
+          {/* change from button to <a href="#"> </a> */}
         </div>
       </div>
 
       <div className="tagline">
-        <p> "We make the <span> Qiz </span>, you <span> Ace </span> the test </p>
+        <p> "We make the <span className="qiz-text"> Qiz</span>, you <span className="ace-text"> ACE </span> the test!" </p>
       </div>
-
+ 
       <div className="product">
         {/* product vid  */}
+        <div className="vid-frame">
+         <h1>Our main product</h1>
+        </div>
       </div>
+
+      <div className="howto">
+            <h1>make my own...</h1>
+            <div className="cards">
+              <div className="card">
+                <div className="inner-border"><h1>study plan</h1></div>
+                </div>
+              <div className="card">
+                <div className="inner-border"><h1>Qiz</h1></div>
+                </div>
+            </div>
+      </div>
+
+      <div class="footer"><p>copyright (c) 2024. CSS Qiz</p></div>
 
     </div>
   );
