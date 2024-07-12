@@ -1,5 +1,5 @@
 import React from 'react';
-// import Typewriter from "typewriter-effect";
+import Typewriter from "typewriter-effect";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import Dropdown from 'react-bootstrap/Dropdown';
@@ -47,7 +47,7 @@ function App() {
         </div>
       </div>
 
-      {/* <div className="tagline">
+      <div className="tagline">
         <p> "We make the <span className="qiz-text"> Qiz</span>, you
           <Typewriter 
            options={{
@@ -56,7 +56,7 @@ function App() {
             autoStart: true,
             loop: true,
           }}/>the test!" </p>
-      </div> */}
+      </div>
  
       <div className="product">
         {/* product vid  */}
