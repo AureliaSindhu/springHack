@@ -38,9 +38,9 @@ function App() {
 
       <div className="homePage">
         {/* image and floating stuffys*/}
-          <img src={bubble1} className="bubble1" alt="bubble-1" />
+          <img src={bubble2} className="bubble2" alt="bubble-1" />
           <img src={qiz} className="home-logo" alt="home-icon" />
-          <img src={bubble2} className="bubble2" alt="bubble-2" />
+          <img src={bubble1} className="bubble1" alt="bubble-2" />
         <div className="generate">
           <button> Generate Qiz </button>
           {/* change from button to <a href="#"> </a> */}

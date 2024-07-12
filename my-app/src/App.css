@@ -8,6 +8,12 @@
   --ter: #008cf2;
   --grey: #292621;
   --background: #292621;
+  --tagline: OtomanopeeOne;
+}
+
+@font-face {
+  font-family: OtomanopeeOne;
+  src: url(./font/OtomanopeeOne-Regular.ttf);
 }
 
 html, body{
@@ -166,7 +172,8 @@ html, body{
   display: flex;
   flex-direction: row;
   /* top: 10px; */
-  font-family: 'Monomaniac One';
+  /* font-family: 'Monomaniac One'; */
+  font-family: var(--tagline);
   font-size: 60px;
   margin-top: 0;
   margin: 0;
