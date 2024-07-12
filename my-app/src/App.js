@@ -59,7 +59,7 @@ function App() {
       <div className="product">
         {/* product vid  */}
         <div className="vid-frame">
-         <h1>Our main product</h1>
+          <h1>Our main product</h1>
         </div>
       </div>
 
