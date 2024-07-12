@@ -198,8 +198,8 @@ html, body{
   display: inline-block;
   flex-direction: row;
   flex-wrap: row;
-  margin: 0;
-  padding: 0;
+  margin: 20px;
+  /* padding: 0; */
   color: var(--sec);
   width: 130px;
 }
