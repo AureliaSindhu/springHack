@@ -1,4 +1,5 @@
 import React from 'react';
+import Typewriter from "typewriter-effect";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -16,7 +17,8 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <div className="App">
+      
+    <div className="App">
         <div className="navBar">
           <div className="left">
             <img src={logo} className="App-logo" alt="logo" />
@@ -29,11 +31,11 @@ function App() {
           </div>
 
 
-          <div className="right">
-            <p> About Us </p>
-            <button> Sign In </button>
-          </div>
+        <div className="right">
+          <p> About Us </p>
+          <button className="signIn"> Sign In</button>
         </div>
+      </div>
 
         <div className="homePage">
           {/* image and floating stuffys*/}
@@ -45,30 +47,17 @@ function App() {
           </div>
         </div>
 
-        <div className="tagline">
-          <p> "We make the <span> Qiz </span>, you <span> Ace </span> the test </p>
-        </div>
-
-        <div className="product">
-          {/* product vid  */}
-          <p> make my own ... </p>
-          <div className="options">
-              <p> study plan</p>
-              <p> qiz </p>
-          </div>
-        </div>
-
-        <div className="footer"> 
-          <div class="credit">&copy; <span id="currentYear"></span> by <span> CSS Qiz</span> | All Rights Reserved</div>
-        </div>
-
-        <Routes>
-          <Route path="/qiz" element={<Qiz />} />
-          {/* Add more routes here if you have additional pages */}
-        </Routes>
-
+      <div className="tagline">
+        <p> "We make the <span> Qiz </span>, you <span> Ace </span> the test </p>
       </div>
-    </Router>
+
+      <div className="product">
+        {/* product vid  */}
+      </div>
+
+      <div class="footer"><p>copyright (c) 2024. CSS Qiz</p></div>
+
+    </div>
   );
 }
 
