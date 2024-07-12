@@ -16,7 +16,6 @@ import './App.css';
 
 function App() {
   return (
-      
     <div className="App">
         <div className="navBar">
           <div className="left">
@@ -33,7 +32,7 @@ function App() {
         <div className="right">
           <p> About Us </p>
           <button className="signIn"> Sign In</button>
-        </div>
+\        </div>
       </div>
 
         <div className="homePage">
@@ -47,15 +46,36 @@ function App() {
         </div>
 
       <div className="tagline">
-        <p> "We make the <span> Qiz </span>, you <span> Ace </span> the test </p>
+        <p> "We make the <span className="qiz-text"> Qiz</span>, you
+          <Typewriter 
+            options={{
+            strings: ['ACE'],
+            pauseFor: 2000,
+            autoStart: true,
+            loop: true,
+          }}/>the test!" </p>
       </div>
-
+ 
       <div className="product">
         {/* product vid  */}
+        <div className="vid-frame">
+         <h1>Our main product</h1>
+        </div>
       </div>
 
-      <div class="footer"><p>copyright (c) 2024. CSS Qiz</p></div>
-    </div>  
+      <div className="howto">
+            <h1>make my own...</h1>
+            <div className="cards">
+              <div className="card">
+                <div className="inner-border"><h1>study plan</h1></div>
+                </div>
+              <div className="card">
+                <div className="inner-border"><h1>Qiz</h1></div>
+                </div>
+            </div>
+      </div>
+
+    </div>
   );
 }
 
