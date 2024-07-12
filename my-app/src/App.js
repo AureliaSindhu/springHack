@@ -55,7 +55,7 @@ function App() {
             pauseFor: 2000,
             autoStart: true,
             loop: true,
-          }}/>the test!" </p>
+          }}/> the test!" </p>
       </div>
  
       <div className="product">
