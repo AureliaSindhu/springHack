@@ -1,6 +1,6 @@
 import React from 'react';
 import Typewriter from "typewriter-effect";
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -16,7 +16,6 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
       
     <div className="App">
         <div className="navBar">
@@ -24,7 +23,7 @@ function App() {
             <img src={logo} className="App-logo" alt="logo" />
 
             <DropdownButton id="dropdown-basic-button" title="Our Features">
-              <Dropdown.Item as={Link} to="/qiz">personalized quiz</Dropdown.Item>
+              <Dropdown.Item href="#">personalized quiz</Dropdown.Item>
               <Dropdown.Item href="#/action-2">personalized study plan</Dropdown.Item>
               {/* <Dropdown.Item href="#/action-3">option3</Dropdown.Item> */}
             </DropdownButton>
@@ -56,8 +55,7 @@ function App() {
       </div>
 
       <div class="footer"><p>copyright (c) 2024. CSS Qiz</p></div>
-
-    </div>
+    </div>  
   );
 }
 
