@@ -57,6 +57,14 @@ html, body{
   border-style: None;
 }
 
+.signIn:hover {
+  box-shadow: 0 0 6px var(--sec);
+}
+
+.signIn:active {
+  transform: translateY(5px);
+}
+
 .left img{
   height: 75px;
 }
@@ -71,10 +79,28 @@ html, body{
 }
 
 .right > p {
+  position:relative;
   padding: 15px;
   padding-right: 5px;
   color: var(--sec);
   font-family: "Outfit", sans-serif;
+}
+
+.right p::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  left: 4px;
+  top: 50px;
+  bottom: 0;
+  width: 0;
+  background: var(--ter);
+  transition: width .2s;
+}
+
+.right > p:hover::after {
+  cursor: pointer;
+  width: 100%;
 }
 
 .home-logo {
@@ -109,6 +135,9 @@ html, body{
 
 .generate button:hover {
   cursor: pointer;
+  transform: translateY(4px);
+  box-shadow: 0 0 25px 6px var(--ter);
+  /* background-color: var(--ter); */
 }
 
 .generate button:after {
@@ -129,17 +158,21 @@ html, body{
 
 .generate button:active {
   box-shadow: 0 0 25px 0.5px var(--ter);
-  transform: translateY(4px);
+  transform: translateY(6px);
   background-color: var(--ter)
 }
 
 .tagline {
-  display: block;
+  display: flex;
+  flex-direction: row;
   /* top: 10px; */
   font-family: 'Monomaniac One';
   font-size: 60px;
   margin-top: 0;
+  margin: 0;
   padding: 0;
+  align-content: center;
+  justify-content: center;
 }
 
 .tagline > * {
@@ -153,6 +186,16 @@ html, body{
 .ace-text {
   color: var(--sec);
 }
+
+/* .Typewriter {
+  display: inline-block;
+  flex-direction: row;
+  flex-wrap: row;
+  margin: 0;
+  padding: 0;
+  color: var(--sec);
+  width: 130px;
+} */
 
 .product {
   display: flex;

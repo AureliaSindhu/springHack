@@ -1,4 +1,5 @@
 import React from 'react';
+// import Typewriter from "typewriter-effect";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import Dropdown from 'react-bootstrap/Dropdown';
@@ -8,7 +9,7 @@ import logo from './pics/logo.png';
 import qiz from './pics/homeicon.png';
 import bubble1 from './pics/bubbleOne.png';
 import bubble2 from './pics/bubbleTwo.png';
-import qLogo from './pics/q-logo.png';
+
 
 import './App.css';
 
@@ -46,9 +47,16 @@ function App() {
         </div>
       </div>
 
-      <div className="tagline">
-        <p> "We make the <span className="qiz-text"> Qiz</span>, you <span className="ace-text"> ACE </span> the test!" </p>
-      </div>
+      {/* <div className="tagline">
+        <p> "We make the <span className="qiz-text"> Qiz</span>, you
+          <Typewriter 
+           options={{
+            strings: ['ACE'],
+            pauseFor: 2000,
+            autoStart: true,
+            loop: true,
+          }}/>the test!" </p>
+      </div> */}
  
       <div className="product">
         {/* product vid  */}
