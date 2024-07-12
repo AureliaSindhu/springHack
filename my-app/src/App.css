@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
 :root{
   --text: #ffff;
   --pri:#f5ede2;
@@ -30,10 +33,26 @@ html, body{
   top: 0;
   /* padding: 1vh 8vh; */
   color: var(--text);
-
+  background-color: var(--background);
   border-bottom: solid var(--ter);
-  border-image: linear-gradient(to right, var(--ter), var(--sec));
+  border-image: linear-gradient(to right, var(--sec), var(--ter));
   border-image-slice: 1;
+
+  font-size: 20px;
+  
+}
+
+.signIn {
+  border-radius: 8px;
+  width: 90px;
+  height: 50px;
+  padding: 0px;
+  font-family: "Outfit", sans-serif;
+  font-size: 20px;
+  box-shadow: 0;
+  background-color: var(--ter);
+  color: var(--text);
+  border-style: None;
 }
 
 .left img{
@@ -42,4 +61,55 @@ html, body{
 
 .left, .right{
   display: inline-flex;
+}
+
+.right > * { /* '> * 'means get all the children elements*/
+  margin: 15px;
+  /* padding: 10px; */
+}
+
+.right > p {
+  padding: 15px;
+  padding-right: 5px;
+  color: var(--sec);
+  font-family: "Outfit", sans-serif;
+}
+
+
+
+.generate {
+  display: block;
+  align-content: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.generate button {
+  width: 300px;
+  height: 60px;
+  font-size: 30px;
+  font-weight: 400;
+  font-family: "Outfit";
+  border-radius: 10px;
+  color: var(--text);
+  background-color: var(--sec);
+  border: none;
+  box-shadow: 0 0 10px 0.5px var(--ter);
+  
+}
+
+
+
+/* FONTS */
+.monomaniac-one-regular {
+  font-family: "Monomaniac One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.outfit {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }

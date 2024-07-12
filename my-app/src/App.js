@@ -8,11 +8,13 @@ import logo from './pics/logo.png';
 import qiz from './pics/homeicon.png';
 import bubble1 from './pics/bubbleOne.png';
 import bubble2 from './pics/bubbleTwo.png';
+import magnifying from './pics/magnifying.png';
 
 import './App.css';
 
 function App() {
   return (
+    
     <div className="App">
 
       <div className="navBar">
@@ -29,7 +31,7 @@ function App() {
 
         <div className="right">
           <p> About Us </p>
-          <button> Sign In </button>
+          <button className="signIn"> Sign In</button>
         </div>
       </div>
 
