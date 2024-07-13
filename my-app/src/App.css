@@ -256,12 +256,12 @@ html, body{
 
 .vid-frame {
   margin: auto;
-  margin-top: 200px; 
+  margin-top: 100px; 
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 65vh;
+  height: 80vh;
   border: solid white;
   width: 75vw;
   border-radius: 30px;
