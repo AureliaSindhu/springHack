@@ -14,19 +14,19 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <nav>
+        {/* <nav>
           <Link to="/">Home</Link>
           <Link to="/qiz">Qiz</Link>
           <Link to="/studyPlan">Study Plan</Link>
-        </nav>
+        </nav> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/qiz" element={<Qiz />} />
           <Route path="/studyPlan" element={<StudyPlan />} />
         </Routes>
-        <footer>
+        {/* <footer>
           <div>&copy; {currentYear} by <span>CSS Qiz</span> | All Rights Reserved</div>
-        </footer>
+        </footer> */}
       </div>
     </Router>
   );

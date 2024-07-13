@@ -1,14 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+@keyframes float{
+  0% {
+    transform: translateY(0); /* Start position */
+  }
+  50% {
+    transform: translateY(-20px); /* Mid position */
+  }
+  100% {
+    transform: translateY(0); /* End position */
+  }
+}
+
 :root{
   --text: #ffff;
   --pri:#f5ede2;
   --sec: #6fb9ee;
   --ter: #008cf2;
-  --line: #79736B;
+  --grey: #292621;
   --background: #292621;
+  --tagline: OtomanopeeOne;
+}
+
+@font-face {
+  font-family: OtomanopeeOne;
+  src: url(./font/OtomanopeeOne-Regular.ttf);
 }
 
 html, body{
   background: var(--background);
+  color: var(--text);
 }
 
 .App {
@@ -20,20 +42,62 @@ html, body{
   color: var(--text);
 }
 
+.App-logo {
+  margin-left: 20px;
+}
 
 .navBar {
   display: flex;
   align-items: center;
   position: sticky;
-  justify-content: space-between;
-  flex-wrap: nowrap;
   top: 0;
-  padding: 1vh 8vh;
+  justify-content: space-between;
+  background-color: var(--background);
   color: var(--text);
-
-  border-bottom: solid var(--ter);
-  border-image: linear-gradient(to right, var(--ter), var(--sec));
+  border-image: linear-gradient(to right, var(--sec), var(--ter));
   border-image-slice: 1;
+  font-size: 20px;
+  border-bottom: 5px solid var(--ter);
+  z-index: 100;
+}
+
+.signIn {
+  border-radius: 8px;
+  width: 90px;
+  height: 50px;
+  padding: 0px;
+  font-family: "Outfit", sans-serif;
+  font-size: 20px;
+  box-shadow: 0;
+  background-color: var(--ter);
+  color: var(--text);
+  border-style: None;
+}
+
+.signIn:hover {
+  box-shadow: 0 0 6px var(--sec);
+}
+
+.signIn:active {
+  transform: translateY(5px);
+}
+
+.dropdown-menu{
+  background-color: var(--sec);
+}
+
+.left button{
+  background: transparent;
+  border-color: transparent;
+  color: var(--sec);
+  font-family: "Outfit", sans-serif;
+  font-size: 20px;;
+}
+
+.dropdown-item{
+  color: var(--text);
+  font-family: "Outfit", sans-serif;
+  font-size: 18px;
 }
 
 .left img{
@@ -42,4 +106,264 @@ html, body{
 
 .left, .right{
   display: inline-flex;
+}
+
+.right > * { /* '> * 'means get all the children elements*/
+  margin: 15px;
+  /* padding: 10px; */
+}
+
+.right > p {
+  position:relative;
+  padding: 15px;
+  padding-right: 5px;
+  color: var(--sec);
+  font-family: "Outfit", sans-serif;
+}
+
+.right p::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  left: 4px;
+  top: 50px;
+  bottom: 0;
+  width: 0;
+  background: var(--ter);
+  transition: width .2s;
+}
+
+.right > p:hover::after {
+  cursor: pointer;
+  width: 100%;
+}
+
+.margin-p{
+  margin-top: 15px;
+}
+
+.signIn{
+  margin-top: 20px;
+}
+
+.bubble2{
+  margin-top: 25%;
+  animation: float 3s ease-in-out infinite;
+}
+
+.bubble1{
+  animation: float 3s ease-in-out infinite;
+  animation-delay:1s;
+}
+
+.home-logo {
+  margin-top: 50px;
+
+}
+
+.generate {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.generate button {
+  width: 280px;
+  margin-top: 0;
+  height: 70px;
+  font-size: 30px;
+  font-weight: 400;
+  font-family: "Outfit";
+  border-radius: 10px;
+  color: var(--text);
+  background-color: var(--sec);
+  border: none;
+  box-shadow: 0 0 10px 0.5px var(--ter);
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+.generate button:hover {
+  cursor: pointer;
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px 6px var(--ter);
+  /* background-color: var(--ter); */
+}
+
+.generate button:after {
+  content: '';
+  background-image: url("./pics/q-logo.png");
+  background-repeat: no-repeat;
+  width: 35px;
+  height: 40px;
+  display: inline-block;
+
+  background-size: cover;
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  margin-left: 0;
+}
+
+.generate button:active {
+  box-shadow: 0 0 25px 0.5px var(--ter);
+  transform: translateY(6px);
+  background-color: var(--ter)
+}
+
+.tagline {
+  display: flex;
+  font-family: var(--tagline);
+  font-size: 60px;
+  white-space:nowrap;
+  justify-content: center;
+  text-align:center;
+}
+
+.tagline > * {
+  margin: 0;
+}
+
+.qiz-text {
+  color: var(--ter);
+}
+
+.ace-text {
+  color: var(--sec);
+}
+
+.Typewriter {
+  display: inline-block;
+  flex-direction: row;
+  flex-wrap: row;
+  margin: 20px;
+  /* padding: 0; */
+  color: var(--sec);
+  width: 130px;
+}
+
+.product {
+  display: flex;
+  background-image: url('./pics/aboutus.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  /* width: 100%; */
+  margin: 0;
+  align-content: center;
+  
+}
+
+.vid-frame {
+  margin: auto;
+  margin-top: 100px; 
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  border: solid white;
+  width: 75vw;
+  border-radius: 30px;
+  /* border-image: linear-gradient(to right, var(--sec), var(--ter));
+   */
+  background-image: linear-gradient(var(--background), var(--background)),
+    linear-gradient(to right, var(--sec), var(--ter));
+  border: double 5px transparent;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.howto {
+  height: 97vh;
+  background-image: url('./pics/howto.png');
+
+  text-align: left;
+}
+.howto > * {
+  margin: 0;
+  padding: 0;
+}
+
+.howto h1 {
+  font-family: 'Outfit';
+  font-size: 60px;
+  margin-left: 150px;
+  /* margin-top: 40px; */
+  font-weight: 500;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  justify-content: center;
+  align-content: center;
+  color:var(--text);
+}
+.card {
+  display: flex;
+  height: 70vh;
+  /* border: solid white; */
+  width: 35vw;
+  margin: 50px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: var(--grey);
+  align-self: center;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 0 0 15px var(--ter);
+  transform: translateY(-5px);
+}
+
+.inner-border {
+  display: flex;
+  border: 5px solid var(--ter);
+  border-radius: 10px;
+  height: 60vh;
+  width: 30vw;
+  margin: auto;
+}
+
+.inner-border h1{
+  color: var(--text);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.inner-border > * {
+  margin-top: 180px;
+  padding: 0;
+}
+
+.footer {
+  display: block;
+  padding: 0;
+  margin: 0;
+  font-family: "Outfit", 'sans serif';
+  font-size: 20px;
+  align-content: center;
+  justify-content: center;
+  background-color: var(--ter);
+  height: 60px;
+}
+
+
+
+/* FONTS */
+.monomaniac-one-regular {
+  font-family: "Monomaniac One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.outfit {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }

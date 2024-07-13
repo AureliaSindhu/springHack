@@ -22,7 +22,7 @@ function App() {
     return (
             <div className="App">
                 <div className="navBar">
-                <div className="left">
+                <div className="left mt-2">
                     <img src={logo} className="App-logo" alt="logo" />
 
                     <DropdownButton id="dropdown-basic-button" title="Our Features">
@@ -32,11 +32,10 @@ function App() {
                     </DropdownButton>
                 </div>
 
-
-                <div className="right">
-                <p> About Us </p>
-                <button className="signIn"> Sign In</button>
-        \        </div>
+                <div className="right mt-2 mx-3">
+                    <p className="margin-p">About Us</p>
+                    <button className="signIn"> Sign In</button>
+                </div>
             </div>
 
                 <div className="homePage">
@@ -49,16 +48,16 @@ function App() {
                 </div>
                 </div>
 
-            <div className="tagline">
-                <p> "We make the <span className="qiz-text"> Qiz</span>, you
-                <Typewriter 
-                    options={{
-                    strings: ['ACE'],
-                    pauseFor: 2000,
-                    autoStart: true,
-                    loop: true,
-                }}/>the test!" </p>
-            </div>
+                <div className="tagline mt-5 ">
+                    <p> We make the <span className="qiz-text"> Qiz</span>, <br></br>you
+                    <Typewriter 
+                        options={{
+                        strings: ['ACE the test!', 'SUCCEED!', 'SHINE bright!'],
+                        pauseFor: 2000,
+                        autoStart: true,
+                        loop: true,
+                    }}/></p>
+                </div>
         
             <div className="product">
                 {/* product vid  */}
