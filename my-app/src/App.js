@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
 import Qiz from './pages/Qiz';
 import StudyPlan from './pages/StudyPlan';
+// import Navbar from './pages/Navbar';
 
 import './App.css';
 
@@ -14,6 +15,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        {/* <Navbar /> */}
         {/* <nav>
           <Link to="/">Home</Link>
           <Link to="/qiz">Qiz</Link>

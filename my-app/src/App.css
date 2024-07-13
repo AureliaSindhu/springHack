@@ -330,15 +330,12 @@ html, body{
 }
 
 .inner-border h1{
+  margin: auto;
+  /* margin-top: 180px; */
   color: var(--text);
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-.inner-border > * {
-  margin-top: 180px;
-  padding: 0;
 }
 
 .footer {
