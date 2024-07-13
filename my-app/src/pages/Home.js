@@ -10,6 +10,7 @@ import logo from '../pics/logo.png';
 import qiz from '../pics/homeicon.png';
 import bubble1 from '../pics/bubbleOne.png';
 import bubble2 from '../pics/bubbleTwo.png';
+import plan from '../pics/plan-step.png';
 
 import Qiz from './Qiz';
 import StudyPlan from './StudyPlan'
@@ -24,7 +25,7 @@ function App() {
                 <div className="navBar">
                 <div className="left mt-2">
                     <img src={logo} className="App-logo" alt="logo" />
-                    <DropdownButton id="dropdown-basic-button" title="Our Features">
+                    <DropdownButton id="dropdown-basic-button" title="Our Features" className="m-3">
                         <Dropdown.Item as={Link} to="/qiz">Personalized Qiz</Dropdown.Item>
                         <Dropdown.Item as={Link} to="/studyPlan">Personalized Study Plan</Dropdown.Item>
                     </DropdownButton>
@@ -65,13 +66,17 @@ function App() {
             </div>
 
             <div className="howto">
-                    <h1>make my own...</h1>
+            <h1 className="mx-12">in just 1, 2, <span className="qiz-text">3</span> steps!</h1>
                     <div className="cards">
-                    <div className="card">
-                        <div className="inner-border"><h1>study plan</h1></div>
+                        <div className="card-1">
+                            <div className="card-front-1">
+                                <div className="inner-border"><h1>study plan</h1></div>
+                            </div>
                         </div>
-                    <div className="card">
-                        <div className="inner-border"><h1>Qiz</h1></div>
+                        <div className="card-2">
+                            <div className="card-front-2">
+                                <div className="inner-border"><h1>Qiz</h1></div>
+                            </div>
                         </div>
                     </div>
             </div>

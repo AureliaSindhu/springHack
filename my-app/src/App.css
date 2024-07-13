@@ -297,27 +297,71 @@ html, body{
 .cards {
   display: flex;
   flex-direction: row;
-  margin-top: 15px;
+  /* margin-top: 15px; */
   justify-content: center;
   align-content: center;
   color:var(--text);
 }
-.card {
+
+.card-1, .card-2 {
+  background-color: transparent;
+  padding: 0;
+  border: transparent;
+  width: auto;
+  height: auto;
+  margin: 30px;
+  transition: transform 1000ms;
+  transform-style: preserve-3d;
+
+}
+
+
+.card-front-1{
+  padding: 0;
   display: flex;
   height: 70vh;
-  /* border: solid white; */
+
   width: 35vw;
-  margin: 50px;
-  margin-top: 10px;
   border-radius: 10px;
   background-color: var(--grey);
   align-self: center;
+  backface-visibility: hidden;
+  
 }
 
-.card:hover {
+.card-front-2{
+  padding: 0;
+  display: flex;
+  height: 70vh;
+
+  width: 35vw;
+  border-radius: 10px;
+  background-color: var(--grey);
+  align-self: center;
+  backface-visibility: hidden;
+  
+}
+
+.card-1:active {
   cursor: pointer;
-  box-shadow: 0 0 15px var(--ter);
-  transform: translateY(-5px);
+  transform: rotateY(180deg) scaleX(-1);
+  background-image: url('./pics/plan-step.png');
+  background-size:100%;
+  background-repeat: no-repeat;
+}
+
+.card-2:active {
+  cursor: pointer;
+  transform: rotateY(180deg) scaleX(-1);
+  background-image: url('./pics/qiz-step.png');
+  background-size:100%;
+  background-repeat: no-repeat;
+}
+
+.plan{
+  width: 100%;
+  height: 100%;
+  margin-top:0;
 }
 
 .inner-border {
@@ -327,18 +371,16 @@ html, body{
   height: 60vh;
   width: 30vw;
   margin: auto;
+  margin-top: 35px;
 }
 
 .inner-border h1{
+  margin: auto;
+  /* margin-top: 180px; */
   color: var(--text);
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-.inner-border > * {
-  margin-top: 180px;
-  padding: 0;
 }
 
 .footer {
@@ -350,7 +392,7 @@ html, body{
   align-content: center;
   justify-content: center;
   background-color: var(--ter);
-  height: 60px;
+  height: 40px;
 }
 
 
