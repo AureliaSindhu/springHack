@@ -18,10 +18,10 @@ function App() {
   return (
     <div className="App">
         <div className="navBar">
-          <div className="left">
+          <div className="left mt-2">
             <img src={logo} className="App-logo" alt="logo" />
 
-            <DropdownButton id="dropdown-basic-button" title="Our Features">
+            <DropdownButton id="dropdown-basic-button" title="Our Features" className="m-3">
               <Dropdown.Item href="#">personalized quiz</Dropdown.Item>
               <Dropdown.Item href="#/action-2">personalized study plan</Dropdown.Item>
               {/* <Dropdown.Item href="#/action-3">option3</Dropdown.Item> */}
@@ -29,31 +29,31 @@ function App() {
           </div>
 
 
-        <div className="right">
-          <p> About Us </p>
+        <div className="right mt-2 mx-3">
+          <p className="margin-p">About Us</p>
           <button className="signIn"> Sign In</button>
-\        </div>
+        </div>
       </div>
 
         <div className="homePage">
           {/* image and floating stuffys*/}
             <img src={bubble2} className="bubble2" alt="bubble-1" />
-            <img src={qiz} className="home-logo" alt="home-icon" />
+            <img src={qiz} className="home-logo p-4" alt="home-icon" />
             <img src={bubble1} className="bubble1" alt="bubble-2" />
           <div className="generate">
             <button> Generate Qiz </button>
           </div>
         </div>
 
-      <div className="tagline">
-        <p> "We make the <span className="qiz-text"> Qiz</span>, you
+      <div className="tagline mt-5 ">
+        <p> We make the <span className="qiz-text"> Qiz</span>, <br></br>you
           <Typewriter 
             options={{
-            strings: ['ACE'],
+            strings: ['ACE the test!', 'SUCCEED!', 'SHINE bright!'],
             pauseFor: 2000,
             autoStart: true,
             loop: true,
-          }}/>the test!" </p>
+          }}/></p>
       </div>
  
       <div className="product">

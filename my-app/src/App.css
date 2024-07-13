@@ -1,6 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
+@keyframes float{
+  0% {
+    transform: translateY(0); /* Start position */
+  }
+  50% {
+    transform: translateY(-20px); /* Mid position */
+  }
+  100% {
+    transform: translateY(0); /* End position */
+  }
+}
+
 :root{
   --text: #ffff;
   --pri:#f5ede2;
@@ -38,17 +50,14 @@ html, body{
   display: flex;
   align-items: center;
   position: sticky;
-  justify-content: space-between;
-  flex-wrap: nowrap;
   top: 0;
-  /* padding: 1vh 8vh; */
-  color: var(--text);
+  justify-content: space-between;
   background-color: var(--background);
-  border-bottom: solid var(--ter);
+  color: var(--text);
   border-image: linear-gradient(to right, var(--sec), var(--ter));
   border-image-slice: 1;
   font-size: 20px;
-  
+  border-bottom: 1px solid var(--ter);
 }
 
 .signIn {
@@ -70,6 +79,24 @@ html, body{
 
 .signIn:active {
   transform: translateY(5px);
+}
+
+.dropdown-menu{
+  background-color: var(--sec);
+}
+
+.left button{
+  background: transparent;
+  border-color: transparent;
+  color: var(--sec);
+  font-family: "Outfit", sans-serif;
+  font-size: 20px;;
+}
+
+.dropdown-item{
+  color: var(--text);
+  font-family: "Outfit", sans-serif;
+  font-size: 18px;
 }
 
 .left img{
@@ -110,6 +137,24 @@ html, body{
   width: 100%;
 }
 
+.margin-p{
+  margin-top: 15px;
+}
+
+.signIn{
+  margin-top: 20px;
+}
+
+.bubble2{
+  margin-top: 25%;
+  animation: float 3s ease-in-out infinite;
+}
+
+.bubble1{
+  animation: float 3s ease-in-out infinite;
+  animation-delay:1s;
+}
+
 .home-logo {
   margin-top: 50px;
 
@@ -136,13 +181,11 @@ html, body{
   box-shadow: 0 0 10px 0.5px var(--ter);
   margin: 0;
   padding-bottom: 15px;
-  
-
 }
 
 .generate button:hover {
   cursor: pointer;
-  transform: translateY(4px);
+  transform: translateY(-4px);
   box-shadow: 0 0 25px 6px var(--ter);
   /* background-color: var(--ter); */
 }
@@ -160,7 +203,6 @@ html, body{
   margin-top: 5px;
   padding: 0;
   margin-left: 0;
-
 }
 
 .generate button:active {
@@ -171,16 +213,11 @@ html, body{
 
 .tagline {
   display: flex;
-  flex-direction: row;
-  /* top: 10px; */
-  /* font-family: 'Monomaniac One'; */
   font-family: var(--tagline);
   font-size: 60px;
-  margin-top: 0;
-  margin: 0;
-  padding: 0;
-  align-content: center;
+  white-space:nowrap;
   justify-content: center;
+  text-align:center;
 }
 
 .tagline > * {
@@ -238,7 +275,6 @@ html, body{
 }
 
 .howto {
-
   height: 97vh;
   background-image: url('./pics/howto.png');
 
@@ -279,20 +315,24 @@ html, body{
 
 .card:hover {
   cursor: pointer;
-  box-shadow: 0 0 15px rgb(97, 95, 95) inset;
-  transform: translateY(5px);
+  box-shadow: 0 0 15px var(--ter);
+  transform: translateY(-5px);
 }
 
 .inner-border {
   display: flex;
-  flex-direction: row;
-  border: solid var(--ter);
+  border: 5px solid var(--ter);
   border-radius: 10px;
   height: 60vh;
   width: 30vw;
   margin: auto;
-  padding: 0;
-  /* text-align: center; */
+}
+
+.inner-border h1{
+  color: var(--text);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .inner-border > * {
@@ -320,7 +360,6 @@ html, body{
   font-weight: 400;
   font-style: normal;
 }
-
 
 .outfit {
   font-family: "Outfit", sans-serif;
