@@ -57,7 +57,7 @@ html, body{
   border-image: linear-gradient(to right, var(--sec), var(--ter));
   border-image-slice: 1;
   font-size: 20px;
-  border-bottom: 1px solid var(--ter);
+  border-bottom: 5px solid var(--ter);
 }
 
 .signIn {

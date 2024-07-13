@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
         <div className="navBar">
-          <div className="left mt-2">
+          <div className="left mt-0">
             <img src={logo} className="App-logo" alt="logo" />
 
             <DropdownButton id="dropdown-basic-button" title="Our Features" className="m-3">
@@ -29,7 +29,7 @@ function App() {
           </div>
 
 
-        <div className="right mt-2 mx-3">
+        <div className="right mt-0 mx-3">
           <p className="margin-p">About Us</p>
           <button className="signIn"> Sign In</button>
         </div>
@@ -64,7 +64,7 @@ function App() {
       </div>
 
       <div className="howto">
-            <h1>make my own...</h1>
+            <h1 className="mx-12">in just 1, 2, <span className="qiz-text">3</span> steps!</h1>
             <div className="cards">
               <div className="card">
                 <div className="inner-border"><h1>study plan</h1></div>
