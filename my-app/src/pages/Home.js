@@ -24,11 +24,9 @@ function App() {
                 <div className="navBar">
                 <div className="left mt-2">
                     <img src={logo} className="App-logo" alt="logo" />
-
                     <DropdownButton id="dropdown-basic-button" title="Our Features">
-                    <Dropdown.Item as={Link} to="/qiz">Personalized Qiz</Dropdown.Item>
-                    <Dropdown.Item as={Link} to="/studyPlan">Personalized Study Plan</Dropdown.Item>
-                    {/* <Dropdown.Item href="#/action-3">option3</Dropdown.Item> */}
+                        <Dropdown.Item as={Link} to="/qiz">Personalized Qiz</Dropdown.Item>
+                        <Dropdown.Item as={Link} to="/studyPlan">Personalized Study Plan</Dropdown.Item>
                     </DropdownButton>
                 </div>
 
@@ -85,7 +83,6 @@ function App() {
             <Routes>
                 <Route path="./Qiz" element={<Qiz />} />
                 <Route path="./StudyPlan" element={<StudyPlan />} />
-                {/* Add more routes here if you have additional pages */}
             </Routes>
 
         </div>
