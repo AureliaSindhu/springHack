@@ -26,7 +26,6 @@ function App() {
                 <div className="left mt-2">
                     <img src={logo} className="App-logo" alt="logo" />
                     <DropdownButton id="dropdown-basic-button" title="Our Features" className="m-3">
-                    <DropdownButton id="dropdown-basic-button" title="Our Features" className="m-3">
                         <Dropdown.Item as={Link} to="/qiz">Personalized Qiz</Dropdown.Item>
                         <Dropdown.Item as={Link} to="/studyPlan">Personalized Study Plan</Dropdown.Item>
                     </DropdownButton>
@@ -44,7 +43,7 @@ function App() {
                     <img src={bubble1} className="bubble1" alt="bubble-2" />
 
                     <div className="generate">
-                        <button> Generate Qiz </button>
+                        <button className="my-5"> Generate Qiz </button>
                     </div>
 
                 </div>

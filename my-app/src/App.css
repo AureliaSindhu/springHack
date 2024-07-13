@@ -58,7 +58,7 @@ html, body{
   border-image-slice: 1;
   font-size: 20px;
   border-bottom: 5px solid var(--ter);
-  z-index: 100;
+  z-index:100;
 }
 
 .signIn {
@@ -98,6 +98,10 @@ html, body{
   color: var(--text);
   font-family: "Outfit", sans-serif;
   font-size: 18px;
+}
+
+.dropdown-item:hover{
+  color:var(--ter);
 }
 
 .left img{
@@ -339,7 +343,7 @@ html, body{
   background-color: var(--grey);
   align-self: center;
   backface-visibility: hidden;
-  
+
 }
 
 .card-1:active {
