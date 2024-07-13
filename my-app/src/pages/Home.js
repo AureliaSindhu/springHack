@@ -26,6 +26,7 @@ function App() {
                 <div className="left mt-2">
                     <img src={logo} className="App-logo" alt="logo" />
                     <DropdownButton id="dropdown-basic-button" title="Our Features" className="m-3">
+                    <DropdownButton id="dropdown-basic-button" title="Our Features" className="m-3">
                         <Dropdown.Item as={Link} to="/qiz">Personalized Qiz</Dropdown.Item>
                         <Dropdown.Item as={Link} to="/studyPlan">Personalized Study Plan</Dropdown.Item>
                     </DropdownButton>
@@ -38,13 +39,14 @@ function App() {
             </div>
 
                 <div className="homePage">
-                {/* image and floating stuffys*/}
                     <img src={bubble2} className="bubble2" alt="bubble-1" />
                     <img src={qiz} className="home-logo" alt="home-icon" />
                     <img src={bubble1} className="bubble1" alt="bubble-2" />
-                <div className="generate">
-                    <button> Generate Qiz </button>
-                </div>
+
+                    <div className="generate">
+                        <button> Generate Qiz </button>
+                    </div>
+
                 </div>
 
                 <div className="tagline mt-5 ">
@@ -55,13 +57,14 @@ function App() {
                         pauseFor: 2000,
                         autoStart: true,
                         loop: true,
-                    }}/></p>
+                        }}/>
+                    </p>
                 </div>
         
             <div className="product">
                 {/* product vid  */}
                 <div className="vid-frame">
-                <h1>Our main product</h1>
+                    <h1>Our main product</h1>
                 </div>
             </div>
 
@@ -78,7 +81,7 @@ function App() {
                                 <div className="inner-border"><h1>Qiz</h1></div>
                             </div>
                         </div>
-                    </div>
+                </div>
             </div>
 
             <div className="footer"> 
