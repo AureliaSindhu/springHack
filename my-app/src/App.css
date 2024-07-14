@@ -415,7 +415,7 @@ html, body{
 
 /* Navbar JS */
 .sideNav .up .App-logo{
-  width: 5%;
+  width: 20%;
 }
 
 .sideNav .up, .down > *{
@@ -435,6 +435,10 @@ html, body{
   margin: 10px 0 0 0;
 }
 
+.sideNav .up a:hover, a:focus, a:active, a.active:focus{
+  color:var(--ter);
+}
+
 .body-nav{
   display:flex;
   font-family: "Outfit", sans-serif;
@@ -445,4 +449,42 @@ html, body{
 
 .sideNav .down > h6{
   margin: 10px 0 0 0;
+}
+
+
+/* QIZ JS */
+.qiz-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.header-qiz > *{
+  flex-direction: row;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.header-left-back{
+  display: flex;
+  justify-content: left;
+  align-items:center;
+  font-family: "Outfit", sans-serif;
+  font-size:30px;
+  color:var(--text);
+  text-decoration: none;
+  padding:0;
+}
+
+.header-left-back:hover{
+  color:var(--ter);
+}
+
+.header-right-btn{
+  font-family: "Outfit", sans-serif;
+  font-size: 20px;
+  padding: 10px 20px;
+  color: var(--text);
+  background-color: var(--ter);
+  border-radius:5px;
+  cursor:pointer;
 }
