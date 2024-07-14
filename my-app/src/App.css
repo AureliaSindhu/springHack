@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('bootstrap-icons/font/bootstrap-icons.css');
+
 
 @keyframes float{
   0% {
@@ -460,15 +462,13 @@ html, body{
   flex-direction: row;
 }
 
-.header-qiz{
-  display: inline-flex;
-  justify-content:space-between;
+.left-side{
+  width:21%;
 }
 
-.header-qiz > *{
-  flex-direction: row;
-  justify-content:space-between;
-  align-items:center;
+.header-qiz{
+  display: inline-flex;
+  justify-content:right;
 }
 
 .header-left-back{
@@ -487,11 +487,32 @@ html, body{
 }
 
 .header-right-btn{
+  border-radius: 8px;
+  width: 100px;
+  height: 50px;
+  padding: 0px;
   font-family: "Outfit", sans-serif;
   font-size: 20px;
-  padding: 10px 20px;
-  color: var(--text);
+  box-shadow: 0;
   background-color: var(--ter);
-  border-radius:5px;
+  color: var(--text);
+  border-style: None;
   cursor:pointer;
+  justify-content: right;
+}
+
+.header-right-btn:hover{
+  background-color: var(--sec);
+  color: var(--background);
+}
+
+.qiz-content > h1{
+  font-family: OtomanopeeOne;
+  font-size: 60px;
+}
+
+.hor-line{
+  margin:0;
+  padding:0;
+
 }

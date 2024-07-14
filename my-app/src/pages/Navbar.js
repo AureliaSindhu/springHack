@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import logo from '../pics/logo.png';
+import sideline from '../pics/side-line.png'
+import horline from '../pics/hor-line.png'
 
 const Navbar = () => {
   return (
@@ -12,6 +14,7 @@ const Navbar = () => {
         <a href="#" className="body-nav mx-5 my-0"> Generate Plan </a>
         <a href="#" className="body-nav mx-5 my-0"> Generate Qiz </a>
       </div>
+      {/* <img src={horline} alt="line" className="hor-line"/> */}
       <div className="down">
         <h6 className="mx-4"> Past Documents </h6>
         {/* function to call the past document */}
