@@ -55,13 +55,13 @@ const Qiz = () => {
             </div>
             <img src={sideline} alt="line" className="side-line"/>
             
-            <div className="right-side col-8 mt-4">
-                <div className="header-qiz w-100">
-                    <Link to="/" className="header-left-back mt-2 col-xl">
+            <div className="right-side col-9">
+                <div className="header-qiz mt-4">
+                    <Link to="/" className="header-left-back col-9">
                         <i className="bi bi-arrow-left my-1 p-2" alt="back"/>Back 
                     </Link>
-                    <button className="header-right-btn mx-4"> Generate </button>
-                    <button className="header-right-btn" onClick={handleUploadClick}> Upload + </button>
+                    <button className="header-right-btn mx-4 mt-3"> Generate </button>
+                    <button className="header-right-btn mt-3" onClick={handleUploadClick}> Upload + </button>
                 </div>
                 
                 <div className="qiz-content">
