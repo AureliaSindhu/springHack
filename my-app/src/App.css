@@ -418,7 +418,31 @@ html, body{
   width: 5%;
 }
 
-.sideNav .up > *{
+.sideNav .up, .down > *{
   display: flex;
-  margin-left: 20px;
+  flex-direction: column;
+  align-items: start;
+}
+
+.body-nav-abt{
+  font-family: "Outfit", sans-serif;
+  font-size: 30px;
+  color: var(--sec);
+  text-decoration:none;
+}
+
+.sideNav .up > h6{
+  margin: 10px 0 0 0;
+}
+
+.body-nav{
+  display:flex;
+  font-family: "Outfit", sans-serif;
+  font-size: 30px;
+  color: var(--sec);
+  text-decoration: none;
+}
+
+.sideNav .down > h6{
+  margin: 10px 0 0 0;
 }

@@ -7,15 +7,15 @@ const Navbar = () => {
     <nav className="sideNav">
       <div className="up">
         <img src={logo} className="App-logo" alt="logo" />
-        <a href="#" className="about"> About Us </a>
-        <h2> Other Features</h2>
-        <a href="#"> Generate Plan </a>
-        <a href="#"> Generate Qiz </a>
+        <a href="#" className="body-nav-abt mx-4 my-0"> About Us </a>
+        <h6 className="mx-4"> Other Features</h6>
+        <a href="#" className="body-nav mx-5 my-0"> Generate Plan </a>
+        <a href="#" className="body-nav mx-5 my-0"> Generate Qiz </a>
       </div>
       <div className="down">
-        <h2> Past Documents </h2>
+        <h6 className="mx-4"> Past Documents </h6>
         {/* function to call the past document */}
-        <h2> Past Plans </h2>
+        <h6 className="mx-4"> Past Plans </h6>
         {/* plans  */}
       </div>
     </nav>
