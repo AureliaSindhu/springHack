@@ -31,6 +31,8 @@
 html, body{
   background: var(--background);
   color: var(--text);
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .App {
@@ -314,9 +316,8 @@ html, body{
   width: auto;
   height: auto;
   margin: 30px;
-  transition: transform 1000ms;
+  /* transition: transform 1000ms; */
   transform-style: preserve-3d;
-
 }
 
 
@@ -350,6 +351,7 @@ html, body{
   background-image: url('./pics/plan-step.png');
   background-size:100%;
   background-repeat: no-repeat;
+  transition: transform 1s;
 }
 
 .card-2:hover {
@@ -358,6 +360,7 @@ html, body{
   background-image: url('./pics/qiz-step.png');
   background-size:100%;
   background-repeat: no-repeat;
+  transition: transform 1s;
 }
 
 .plan{
@@ -409,4 +412,86 @@ html, body{
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+}
+
+
+/* Navbar JS */
+.sideNav .up .App-logo{
+  width: 20%;
+}
+
+.sideNav .up, .down > *{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.body-nav-abt{
+  font-family: "Outfit", sans-serif;
+  font-size: 30px;
+  color: var(--sec);
+  text-decoration:none;
+}
+
+.sideNav .up > h6{
+  margin: 10px 0 0 0;
+}
+
+.sideNav .up a:hover, a:focus, a:active, a.active:focus{
+  color:var(--ter);
+}
+
+.body-nav{
+  display:flex;
+  font-family: "Outfit", sans-serif;
+  font-size: 30px;
+  color: var(--sec);
+  text-decoration: none;
+}
+
+.sideNav .down > h6{
+  margin: 10px 0 0 0;
+}
+
+
+/* QIZ JS */
+.qiz-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.header-qiz{
+  display: inline-flex;
+  justify-content:space-between;
+}
+
+.header-qiz > *{
+  flex-direction: row;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.header-left-back{
+  display: flex;
+  justify-content: left;
+  align-items:center;
+  font-family: "Outfit", sans-serif;
+  font-size:30px;
+  color:var(--text);
+  text-decoration: none;
+  padding:0;
+}
+
+.header-left-back:hover{
+  color:var(--ter);
+}
+
+.header-right-btn{
+  font-family: "Outfit", sans-serif;
+  font-size: 20px;
+  padding: 10px 20px;
+  color: var(--text);
+  background-color: var(--ter);
+  border-radius:5px;
+  cursor:pointer;
 }

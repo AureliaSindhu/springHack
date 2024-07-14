@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 // import { BrowserRouter as Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import logo from '../pics/q-logo.png'
+import leftArr from '../pics/arrow-left.png';
 
 const Qiz = () => {
     const [topic, setTopic] = useState('');
@@ -48,29 +49,29 @@ const Qiz = () => {
     // };
 
     return (
-        <div className="qiz-container">
+        <div className="qiz-container mt-4">
+            <div className="left-side col-3">
             <Navbar />
-
-            <div className="header-qiz">
-                <div className="header-left">
-                    <Link to="/"> Back </Link>
-                </div>
-                <div className="header-right">
-                    <button className="signIn"> Generate </button>
-                    <button className="signIn" onClick={handleUploadClick}> Upload + </button>
-                </div>
-                
             </div>
             
-            <div className="qiz-content">
-                <h1> Generate <span> Qiz </span></h1>
-                <div className="input-section">
-                    <input
-                        type="file"
-                        ref={fileInputRef}  // Attach ref to the file input
-                        onChange={handleFileChange}  // Event handler for file selection
-                        style={{ display: 'none' }}
-                    />
+            <div className="right-side col-auto">
+                <div className="header-qiz">
+                    <Link to="/" className="header-left-back mt-2 col-sm-2">
+                        <img src={leftArr} className="my-1 p-2" alt="back"/>Back 
+                    </Link>
+                    <button className="header-right-btn"> Generate </button>
+                    <button className="header-right-btn" onClick={handleUploadClick}> Upload + </button>
+                </div>
+                
+                <div className="qiz-content">
+                    <h1> Generate <span> Qiz </span></h1>
+                    <div className="input-section">
+                        <input
+                            type="file"
+                            ref={fileInputRef}  // Attach ref to the file input
+                            onChange={handleFileChange}  // Event handler for file selection
+                            style={{ display: 'none' }}
+                        />
 
                     <input
                         type="file"
@@ -78,24 +79,26 @@ const Qiz = () => {
                         onChange={handleFileChange}
                     />
 
-                    <button>
-                        Submit
-                    </button>
+                        <button>
+                            Submit
+                        </button>
 
-                    <input
-                        type="text"
-                        placeholder="Enter a topic" 
-                        value={topic}
-                        onChange={handleTopicChange}
-                    />
-                    <button> <img src={logo}></img></button>
-                    
-                    {/* <button onClick={handleGenerateMaterial} disabled={isLoading}>
-                        {isLoading ? 'Generating...' : 'Generate Material'}
-                    </button> */}
-                </div>
-            </div>      
+                        <input
+                            type="text"
+                            placeholder="Enter a topic"
+                            value={topic}
+                            onChange={handleTopicChange}
+                        />
+                        <button> <img src={logo}></img></button>
+                        
+                        {/* <button onClick={handleGenerateMaterial} disabled={isLoading}>
+                            {isLoading ? 'Generating...' : 'Generate Material'}
+                        </button> */}
+                    </div>
+                </div>      
+            </div>
         </div>
+            
     );
 };
 
