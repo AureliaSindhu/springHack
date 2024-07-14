@@ -314,9 +314,8 @@ html, body{
   width: auto;
   height: auto;
   margin: 30px;
-  transition: transform 1000ms;
+  /* transition: transform 1000ms; */
   transform-style: preserve-3d;
-
 }
 
 
@@ -350,6 +349,7 @@ html, body{
   background-image: url('./pics/plan-step.png');
   background-size:100%;
   background-repeat: no-repeat;
+  transition: transform 1s;
 }
 
 .card-2:hover {
@@ -358,6 +358,7 @@ html, body{
   background-image: url('./pics/qiz-step.png');
   background-size:100%;
   background-repeat: no-repeat;
+  transition: transform 1s;
 }
 
 .plan{
@@ -409,4 +410,15 @@ html, body{
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+}
+
+
+/* Navbar JS */
+.sideNav .up .App-logo{
+  width: 5%;
+}
+
+.sideNav .up > *{
+  display: flex;
+  margin-left: 20px;
 }
