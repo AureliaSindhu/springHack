@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 // import { BrowserRouter as Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import logo from '../pics/q-logo.png'
-import leftArr from '../pics/arrow-left.png';
+import sideline from '../pics/side-line.png'
 
 const Qiz = () => {
     const [topic, setTopic] = useState('');
@@ -49,15 +49,16 @@ const Qiz = () => {
     // };
 
     return (
-        <div className="qiz-container mt-4">
-            <div className="left-side col-3">
-            <Navbar />
+        <div className="qiz-container">
+            <div className="left-side mt-4">
+                <Navbar />
             </div>
+            <img src={sideline} alt="line" className="side-line"/>
             
-            <div className="right-side col-auto">
-                <div className="header-qiz">
-                    <Link to="/" className="header-left-back mt-2 col-sm-2">
-                        <img src={leftArr} className="my-1 p-2" alt="back"/>Back 
+            <div className="right-side col-9">
+                <div className="header-qiz mt-4">
+                    <Link to="/" className="header-left-back col-9">
+                        <i className="bi bi-arrow-left my-1 p-2" alt="back"/>Back 
                     </Link>
                     <button className="header-right-btn"> Generate </button>
                     <button className="header-right-btn" onClick={handleUploadClick}> Upload + </button>
@@ -71,7 +72,7 @@ const Qiz = () => {
                 </div>
                 
                 <div className="qiz-content">
-                    <h1> Generate <span> Qiz </span></h1>
+                    <h1 className="m-4"> Generate <span className="qiz-text"> Qiz </span></h1>
                     <div className="input-section">
 
                         <div className="inputFile">
