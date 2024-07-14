@@ -323,9 +323,8 @@ html, body{
 .card-front-1{
   padding: 0;
   display: flex;
-  height: 70vh;
-
-  width: 35vw;
+  height: 63vh;
+  width: 30vw;
   border-radius: 10px;
   background-color: var(--grey);
   align-self: center;
@@ -336,9 +335,8 @@ html, body{
 .card-front-2{
   padding: 0;
   display: flex;
-  height: 70vh;
-
-  width: 35vw;
+  height: 63vh;
+  width: 30vw;
   border-radius: 10px;
   background-color: var(--grey);
   align-self: center;
@@ -346,7 +344,7 @@ html, body{
 
 }
 
-.card-1:active {
+.card-1:hover {
   cursor: pointer;
   transform: rotateY(180deg) scaleX(-1);
   background-image: url('./pics/plan-step.png');
@@ -354,7 +352,7 @@ html, body{
   background-repeat: no-repeat;
 }
 
-.card-2:active {
+.card-2:hover {
   cursor: pointer;
   transform: rotateY(180deg) scaleX(-1);
   background-image: url('./pics/qiz-step.png');
@@ -372,10 +370,9 @@ html, body{
   display: flex;
   border: 5px solid var(--ter);
   border-radius: 10px;
-  height: 60vh;
+  height: 63vh;
   width: 30vw;
   margin: auto;
-  margin-top: 35px;
 }
 
 .inner-border h1{
