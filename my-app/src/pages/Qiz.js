@@ -61,35 +61,40 @@ const Qiz = () => {
                     </Link>
                     <button className="header-right-btn"> Generate </button>
                     <button className="header-right-btn" onClick={handleUploadClick}> Upload + </button>
+
+                    <input
+                        type="file"
+                        ref={fileInputRef}  // Attach ref to the file input
+                        onChange={handleFileChange}  // Event handler for file selection
+                        style={{ display: 'none' }}
+                    />
                 </div>
                 
                 <div className="qiz-content">
                     <h1> Generate <span> Qiz </span></h1>
                     <div className="input-section">
-                        <input
-                            type="file"
-                            ref={fileInputRef}  // Attach ref to the file input
-                            onChange={handleFileChange}  // Event handler for file selection
-                            style={{ display: 'none' }}
-                        />
 
-                    <input
-                        type="file"
-                        accept=".pdf,.docx,.pptx,.txt"
-                        onChange={handleFileChange}
-                    />
+                        <div className="inputFile">
+                            <input
+                                type="file"
+                                accept=".pdf,.docx,.pptx,.txt"
+                                onChange={handleFileChange}
+                            />
 
-                        <button>
-                            Submit
-                        </button>
+                            <button>
+                                Submit
+                            </button>
+                        </div>
 
-                        <input
-                            type="text"
-                            placeholder="Enter a topic"
-                            value={topic}
-                            onChange={handleTopicChange}
-                        />
-                        <button> <img src={logo}></img></button>
+                        <div className="generateBar">
+                            <input
+                                type="text"
+                                placeholder="Enter a topic"
+                                value={topic}
+                                onChange={handleTopicChange}
+                            />
+                            <button> <img src={logo}></img></button>
+                        </div>
                         
                         {/* <button onClick={handleGenerateMaterial} disabled={isLoading}>
                             {isLoading ? 'Generating...' : 'Generate Material'}
