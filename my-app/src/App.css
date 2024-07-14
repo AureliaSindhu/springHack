@@ -31,6 +31,8 @@
 html, body{
   background: var(--background);
   color: var(--text);
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .App {
