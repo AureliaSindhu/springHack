@@ -74,7 +74,7 @@ const Qiz = () => {
 
                     <input
                         type="file"
-                        accept=".pdf,.docx,.pptx"
+                        accept=".pdf,.docx,.pptx,.txt"
                         onChange={handleFileChange}
                     />
 
@@ -84,7 +84,7 @@ const Qiz = () => {
 
                     <input
                         type="text"
-                        placeholder="Enter a topic"
+                        placeholder="Enter a topic" 
                         value={topic}
                         onChange={handleTopicChange}
                     />

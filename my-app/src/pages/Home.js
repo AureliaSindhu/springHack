@@ -1,6 +1,8 @@
 import React from 'react';
 import Typewriter from "typewriter-effect";
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -19,6 +21,12 @@ import '../App.css';
 
 function App() {
     const currentYear = new Date().getFullYear();
+
+    const navigate = useNavigate();
+    
+    const handleClick = () => {
+        navigate('/qiz');  
+    };
 
     return (
             <div className="App">
@@ -43,7 +51,7 @@ function App() {
                     <img src={bubble1} className="bubble1" alt="bubble-2" />
 
                     <div className="generate">
-                        <button className="my-5"> Generate Qiz </button>
+                        <button className="my-5" onClick={handleClick}> Generate Qiz </button>
                     </div>
 
                 </div>
