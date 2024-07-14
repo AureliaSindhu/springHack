@@ -460,6 +460,11 @@ html, body{
   flex-direction: row;
 }
 
+.header-qiz{
+  display: inline-flex;
+  justify-content:space-between;
+}
+
 .header-qiz > *{
   flex-direction: row;
   justify-content:space-between;
