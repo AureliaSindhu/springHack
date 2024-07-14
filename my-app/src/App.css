@@ -476,6 +476,7 @@ html, body{
   display: flex;
   justify-content: left;
   align-items:center;
+  margin-right:65%;
   font-family: "Outfit", sans-serif;
   font-size:30px;
   color:var(--text);

@@ -57,11 +57,11 @@ const Qiz = () => {
             
             <div className="right-side col-9">
                 <div className="header-qiz mt-4">
-                    <Link to="/" className="header-left-back col-9">
+                    <Link to="/" className="header-left-back">
                         <i className="bi bi-arrow-left my-1 p-2" alt="back"/>Back 
                     </Link>
-                    <button className="header-right-btn"> Generate </button>
-                    <button className="header-right-btn" onClick={handleUploadClick}> Upload + </button>
+                    <button className="header-right-btn mx-3 mt-2"> Generate </button>
+                    <button className="header-right-btn mt-2" onClick={handleUploadClick}> Upload + </button>
 
                     <input
                         type="file"
