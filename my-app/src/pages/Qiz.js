@@ -29,7 +29,14 @@ const Qiz = () => {
             fileInputRef.current.click(); 
         }
     };
+    // ---- implementation for changing Generate Qiz color 
+    const [qizColor, setQizColor] = React.useState('#008cf2');
 
+    const changeColor = () => {
+        setQizColor('#008cf2');
+    };
+    // ----
+    
     // const generateMaterial = async () => {
     //     setIsLoading(true);
     //     try {
@@ -51,7 +58,9 @@ const Qiz = () => {
     return (
         <div className="qiz-container">
             <div className="left-side mt-4">
-                <Navbar />
+                <Navbar qizColor={qizColor}/>
+                {/* remove qizColor={qizColor} if it causes problems with further 
+                implementation*/}
             </div>
             <img src={sideline} alt="line" className="side-line"/>
             
