@@ -455,6 +455,9 @@ html, body{
   margin: 10px 0 0 0;
 }
 
+.sideNav h6 {
+  font-family: "Outfit", sans-serif;
+}
 
 /* QIZ JS */
 .qiz-container{
@@ -515,6 +518,8 @@ html, body{
 .hor-line{
   margin:0;
   padding:0;
+  width: 100%;
+  height: 2px;
 
 }
 
