@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from '../pics/q-logo.png';
 import sideline from '../pics/side-line.png';
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import qLogo from '../pics/q-logo.png';
 
 // Replace with your actual API key
 const apikey = import.meta.env.VITE_GEMINI_API_KEY;
@@ -19,20 +20,24 @@ const Qiz = () => {
     const fileInputRef = useRef(null);
     const navigate = useNavigate();
 
+    // Handler for topic input changes
     const handleTopicChange = (event) => {
         setTopic(event.target.value);
     };
 
+    // Handler for file input changes
     const handleFileChange = (event) => {
         setFile(event.target.files[0]);
     };
 
+    // Handler for clicking the Upload button
     const handleUploadClick = () => {
         if (fileInputRef.current) {
             fileInputRef.current.click();
         }
     };
 
+    // Handler for generating quiz content
     const handleGenerateQuiz = async () => {
         if (!topic && !file) {
             alert('Please provide either a file or a topic.');
@@ -50,6 +55,7 @@ const Qiz = () => {
                 }
             });
 
+            // Call the AI to generate content
             const result = await model.generateContent(prompt);
             const response = await result.response;
             const text = await response.text();
@@ -62,14 +68,18 @@ const Qiz = () => {
                 return;
             }
 
+            // Destructure the response
             const { flashcards, multipleChoiceQuestions, download_url } = parsedResponse;
 
+            // Update state with the generated content
             setFlashcards(flashcards);
             setMultipleChoiceQuestions(multipleChoiceQuestions);
             setDownloadLink(download_url || '');
 
+            // Navigate to the flashcards page with the generated content
             navigate('/flashcards', { state: { flashcards, multipleChoiceQuestions, topic } });
 
+            // Show icon for feedback
             setIconVisible(true);
             setTimeout(() => {
                 setIconVisible(false);
@@ -115,23 +125,21 @@ const Qiz = () => {
                 <div className="qiz-content">
                     <h1 className="m-4">Generate <span className="qiz-text">Qiz</span></h1>
                     <div className="input-section">
-                        {/* Show topic input only if no file is selected */}
-                        {!file && (
-                            <div className="generateBar">
-                                <input
-                                    type="text"
-                                    placeholder="Enter a topic"
-                                    value={topic}
-                                    onChange={handleTopicChange}
-                                />
-                            </div>
-                        )}
-
-                        {/* Show file upload button */}
                         <div className="inputFile">
-                            <button type='button' onClick={handleUploadClick}>
+                            {/* <button type='button' onClick={handleUploadClick}>
                                 Upload File
+                            </button> */}
+
+                            <button className="input-button" onClick={handleUploadClick}>
+                                <div className="input-box">
+                                    <h2> <span class="click-here">Click here </span>to upload your
+                                        schedule and we'll do the rest!
+                                    </h2>
+
+                                    <img src={qLogo} alt="q Logo" />
+                                </div>
                             </button>
+                            
                             <input
                                 type='file'
                                 id='file'
@@ -143,12 +151,31 @@ const Qiz = () => {
                             />
                         </div>
 
+                        {!file && (
+                            <div className="generateBar">
+                                <input
+                                    type="text"
+                                    placeholder="Enter a topic"
+                                    value={topic}
+                                    onChange={handleTopicChange}
+                                />
+                            </div>
+                        )}
+
+                        <button
+                            className="header-right-btn mx-3 mt-2"
+                            onClick={handleGenerateQuiz}
+                            disabled={!topic && !file} // Disable the button if neither a topic nor a file is provided
+                        >
+                            Generate
+                        </button>
+
                         {downloadLink && (
                             <a href={downloadLink} className="btn btn-primary mt-3" download>
                                 Download Material
                             </a>
                         )}
-                        <img src='icon.png' className={iconVisible ? 'iconTurn visible' : 'iconTurn'} /> {/* Conditionally apply visible class */}
+                        {/* <img src='icon.png' className={iconVisible ? 'iconTurn visible' : 'iconTurn'} /> Conditionally apply visible class */}
                     </div>
                 </div>
             </div>

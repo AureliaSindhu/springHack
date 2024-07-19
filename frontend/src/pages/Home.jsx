@@ -31,18 +31,18 @@ function App() {
     return (
             <div className="App">
                 <div className="navBar">
-                <div className="left mt-2">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <DropdownButton id="dropdown-basic-button" title="Our Features" className="m-3">
-                        <Dropdown.Item as={Link} to="/qiz">Personalized Qiz</Dropdown.Item>
-                        <Dropdown.Item as={Link} to="/studyPlan">Personalized Study Plan</Dropdown.Item>
-                    </DropdownButton>
-                </div>
+                    <div className="left mt-2">
+                        <img src={logo} className="App-logo" alt="logo" />
+                        <DropdownButton id="dropdown-basic-button" title="Our Features" className="m-3">
+                            <Dropdown.Item as={Link} to="/qiz">Personalized Qiz</Dropdown.Item>
+                            <Dropdown.Item as={Link} to="/studyPlan">Personalized Study Plan</Dropdown.Item>
+                        </DropdownButton>
+                    </div>
 
-                <div className="right mt-2 mx-3">
-                    <p className="margin-p">About Us</p>
-                    <button className="signIn"> Sign In</button>
-                </div>
+                    <div className="right mt-2 mx-3">
+                        <p className="margin-p">About Us</p>
+                        <button className="signIn"> Sign In</button>
+                    </div>
             </div>
 
                 <div className="homePage">

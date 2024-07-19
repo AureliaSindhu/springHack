@@ -22,11 +22,11 @@
   --ter: #008cf2;
   --grey: #292621;
   --background: #292621;
-  --tagline: OtomanopeeOne;
+  --tagline: "OtomanopeeOne";
 }
 
 @font-face {
-  font-family: OtomanopeeOne;
+  font-family: "OtomanopeeOne";
   src: url(./font/OtomanopeeOne-Regular.ttf);
 }
 
@@ -87,7 +87,7 @@ html, body{
 }
 
 .dropdown-menu{
-  background-color: var(--sec);
+  background-color: var(--sec) !important;
 }
 
 .left button{
@@ -95,17 +95,17 @@ html, body{
   border-color: transparent;
   color: var(--sec);
   font-family: "Outfit", sans-serif;
-  font-size: 20px;;
+  font-size: 20px;
 }
 
 .dropdown-item{
-  color: var(--text);
+  color: var(--text) !important;
   font-family: "Outfit", sans-serif;
   font-size: 18px;
 }
 
 .dropdown-item:hover{
-  color:var(--ter);
+  color:var(--ter) !important;
 }
 
 .left img{
@@ -476,9 +476,9 @@ html, body{
   display: flex;
   justify-content: left;
   align-items:center;
-  margin-right:65%;
   font-family: "Outfit", sans-serif;
   font-size:30px;
+  margin-right:65%;
   color:var(--text);
   text-decoration: none;
   padding:0;
@@ -509,7 +509,7 @@ html, body{
 }
 
 .qiz-content > h1{
-  font-family: OtomanopeeOne;
+  font-family: "OtomanopeeOne";
   font-size: 60px;
 }
 
@@ -517,4 +517,132 @@ html, body{
   margin:0;
   padding:0;
 
+}
+
+/* StudyPlan JS*/
+.plan-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.plan-content > h1{
+  font-family: OtomanopeeOne;
+  font-size: 60px;
+}
+
+.plan-content p {
+  font-family: "Outfit", sans serif;
+  font-size: 20px;
+
+}
+
+.header-plan {
+  display: inline-flex;
+  justify-content:right;
+  width:100%;
+}
+
+.header-plan-left-back {
+  display: flex;
+  justify-content: left;
+  align-items:center;
+  margin-right:77%;
+  font-family: "Outfit", sans-serif;
+  font-size:30px;
+  color:var(--text);
+  text-decoration: none;
+  padding:0;
+}
+
+.header-right-btn2{
+  border-radius: 8px;
+  width: 100px;
+  height: 50px;
+  padding: 0px;
+  margin: 2px;
+  font-family: "Outfit", sans-serif;
+  font-size: 20px;
+  box-shadow: 0;
+  background-color: var(--ter);
+  color: var(--text);
+  border-style: None;
+  cursor:pointer;
+  justify-content: right;
+}
+
+.plan-text {
+  color: var(--ter);
+}
+
+.left-side{
+  width:21%;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.header-plan{
+  display: inline-flex;
+  justify-content:right;
+  width:100%;
+}
+
+.input-box {
+  height: 400px;
+  margin: auto;
+  width: 60vw;
+  border-radius: 20px;
+
+  background-image: linear-gradient(var(--background), var(--background)),
+    linear-gradient(to right, var(--ter), #328dce, var(--sec), var(--pri));
+  border: double 5px transparent;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  /* background-position: left; */
+  background-size: 1000% 100%;
+  animation: box-gradient 3s infinite alternate;
+}
+
+@keyframes box-gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+/* @keyframes box-gradient {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+} */
+
+.input-box span {
+  color: var(--sec);
+  font-family: "Outfit", "sans serif";
+}
+
+.input-box h2 {
+  width: 500px;
+  margin: auto;
+  color: var(--text);
+  margin-top: 13%;
+  z-index: 3;
+}
+
+.input-box img {
+  height: 130px;
+  margin-top:20px;
+}
+
+.input-button {
+  background-color: transparent;
+  border: none;
 }
