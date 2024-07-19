@@ -1,16 +1,21 @@
 import React, { useState, useRef } from 'react';
 import Navbar from './Navbar';
-import axios from 'axios'; // for API request
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../pics/q-logo.png';
 import sideline from '../pics/side-line.png';
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
+// Replace with your actual API key
+const apikey = import.meta.env.VITE_GEMINI_API_KEY;
+const genAI = new GoogleGenerativeAI(apikey);
 
 const Qiz = () => {
     const [topic, setTopic] = useState('');
     const [file, setFile] = useState(null);
     const [flashcards, setFlashcards] = useState([]);
     const [multipleChoiceQuestions, setMultipleChoiceQuestions] = useState([]);
-    const [downloadLink, setDownloadLink] = useState(''); // Renamed from download_url
+    const [downloadLink, setDownloadLink] = useState('');
+    const [iconVisible, setIconVisible] = useState(false);
     const fileInputRef = useRef(null);
     const navigate = useNavigate();
 
@@ -28,33 +33,48 @@ const Qiz = () => {
         }
     };
 
-    const handleSubmit = async () => {
+    const handleGenerateQuiz = async () => {
         if (!topic && !file) {
             alert('Please provide either a file or a topic.');
             return;
         }
 
         try {
-            const formData = new FormData();
-            if (file) {
-                formData.append('file', file);
-            }
-            formData.append('topic', topic);
+            // Example prompt for generating flashcards and multiple choice questions
+            const prompt = `Generate a set of flashcards and multiple-choice questions for the topic: "${topic}". Provide 5 flashcards and 5 multiple-choice questions with 4 options each. Include the correct answer for each question.`;
 
-            const response = await axios.post('http://localhost:8000/api/generate-quiz', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
+            const model = genAI.getGenerativeModel({
+                model: "gemini-1.5-flash",
+                generationConfig: {
+                    response_mime_type: "application/json"
+                }
             });
 
-            // Extract quiz data from the response
-            const { flashcards, multipleChoiceQuestions, download_url } = response.data;
+            const result = await model.generateContent(prompt);
+            const response = await result.response;
+            const text = await response.text();
+            
+            let parsedResponse;
+            try {
+                parsedResponse = JSON.parse(text);
+            } catch (error) {
+                console.error('Error parsing JSON:', error);
+                return;
+            }
+
+            const { flashcards, multipleChoiceQuestions, download_url } = parsedResponse;
 
             setFlashcards(flashcards);
             setMultipleChoiceQuestions(multipleChoiceQuestions);
             setDownloadLink(download_url || '');
 
             navigate('/flashcards', { state: { flashcards, multipleChoiceQuestions, topic } });
+
+            setIconVisible(true);
+            setTimeout(() => {
+                setIconVisible(false);
+            }, 2000);
+
         } catch (error) {
             console.error('Error generating quiz:', error);
             alert('An error occurred while generating the quiz. Please try again.');
@@ -75,7 +95,7 @@ const Qiz = () => {
                     </Link>
                     <button
                         className="header-right-btn mx-3 mt-2"
-                        onClick={handleSubmit}
+                        onClick={handleGenerateQuiz}
                         disabled={!topic && !file} // Disable the button if neither a topic nor a file is provided
                     >
                         Generate
@@ -104,7 +124,6 @@ const Qiz = () => {
                                     value={topic}
                                     onChange={handleTopicChange}
                                 />
-                                <button onClick={handleSubmit}>Submit</button>
                             </div>
                         )}
 
@@ -122,7 +141,6 @@ const Qiz = () => {
                                 onChange={handleFileChange}
                                 style={{ display: 'none' }}
                             />
-                            <button onClick={handleSubmit}>Submit</button>
                         </div>
 
                         {downloadLink && (
@@ -130,6 +148,7 @@ const Qiz = () => {
                                 Download Material
                             </a>
                         )}
+                        <img src='icon.png' className={iconVisible ? 'iconTurn visible' : 'iconTurn'} /> {/* Conditionally apply visible class */}
                     </div>
                 </div>
             </div>
