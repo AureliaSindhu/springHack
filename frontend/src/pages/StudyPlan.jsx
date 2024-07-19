@@ -20,13 +20,17 @@ function StudyPlan() {
     };
     const [file, setFile] = useState(null);
 
+    const [planColor, setPlanColor] = React.useState('#008cf2');
 
+    const changeColor = () => {
+        setPlanColor('#008cf2');
+    };
 
     return (
         <div className="plan-container">
 
             <div className="left-side mt-4">
-                <Navbar />
+                <Navbar planColor={planColor}/>
 
             </div>
             <img src={sideline} alt="line" className="side-line" />

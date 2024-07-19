@@ -37,6 +37,12 @@ const Qiz = () => {
         }
     };
 
+    const [qizColor, setQizColor] = React.useState('#008cf2');
+
+    const changeColor = () => {
+        setQizColor('#008cf2');
+    };
+
     // Handler for generating quiz content
     const handleGenerateQuiz = async () => {
         if (!topic && !file) {
@@ -94,7 +100,7 @@ const Qiz = () => {
     return (
         <div className="qiz-container">
             <div className="left-side mt-4">
-                <Navbar />
+                <Navbar qizColor={qizColor}/>
             </div>
             <img src={sideline} alt="line" className="side-line" />
 
