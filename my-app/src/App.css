@@ -579,8 +579,8 @@ html, body{
 
 .plan-text {
   color: var(--ter);
+  
 }
-
 
 .left-side{
   width:21%;
@@ -602,11 +602,35 @@ html, body{
   border-radius: 20px;
 
   background-image: linear-gradient(var(--background), var(--background)),
-    linear-gradient(to right, var(--sec), var(--ter));
+    linear-gradient(to right, var(--ter), #328dce, var(--sec), var(--pri));
   border: double 5px transparent;
   background-origin: border-box;
   background-clip: content-box, border-box;
+  /* background-position: left; */
+  background-size: 1000% 100%;
+  animation: box-gradient 3s infinite alternate;
 }
+
+@keyframes box-gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+/* @keyframes box-gradient {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+} */
 
 .input-box span {
   color: var(--sec);
