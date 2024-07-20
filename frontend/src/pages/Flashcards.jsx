@@ -3,7 +3,12 @@ import { useLocation } from 'react-router-dom';
 
 const Flashcards = () => {
     const location = useLocation();
-    const { flashcards, multipleChoiceQuestions, topic } = location.state || { flashcards: [], multipleChoiceQuestions: [], topic: '' };
+    const { flashcards = [], multipleChoiceQuestions = [], topic = '' } = location.state || {};
+
+    // Debugging: Log the data to verify it's coming through
+    console.log('Flashcards data:', flashcards);
+    console.log('Multiple Choice Questions data:', multipleChoiceQuestions);
+    console.log('Topic:', topic);
 
     return (
         <div className="flashcards-container">
@@ -11,27 +16,35 @@ const Flashcards = () => {
 
             <div className="flashcards-list">
                 <h2>Flashcards</h2>
-                {flashcards.map((flashcard, index) => (
-                    <div key={index} className="flashcard">
-                        <div className="question">{flashcard.question}</div>
-                        <div className="answer">{flashcard.answer}</div>
-                    </div>
-                ))}
+                {flashcards.length > 0 ? (
+                    flashcards.map((flashcard, index) => (
+                        <div key={index} className="flashcard">
+                            <div className="question">{flashcard.front}</div>
+                            <div className="answer">{flashcard.back}</div>
+                        </div>
+                    ))
+                ) : (
+                    <p>No flashcards available.</p>
+                )}
             </div>
 
             <div className="quiz-section">
                 <h2>Multiple Choice Quiz</h2>
-                {multipleChoiceQuestions.map((question, index) => (
-                    <div key={index} className="quiz-question">
-                        <p>{question.question}</p>
-                        <ul>
-                            {question.options.map((option, i) => (
-                                <li key={i}>{option}</li>
-                            ))}
-                        </ul>
-                        <p>Answer: {question.answer}</p>
-                    </div>
-                ))}
+                {multipleChoiceQuestions.length > 0 ? (
+                    multipleChoiceQuestions.map((question, index) => (
+                        <div key={index} className="quiz-question">
+                            <p>{question.question}</p>
+                            <ul>
+                                {question.options.map((option, i) => (
+                                    <li key={i}>{option}</li>
+                                ))}
+                            </ul>
+                            <p>Answer: {question.answer}</p>
+                        </div>
+                    ))
+                ) : (
+                    <p>No multiple choice questions available.</p>
+                )}
             </div>
         </div>
     );

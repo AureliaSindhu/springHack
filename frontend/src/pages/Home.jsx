@@ -15,7 +15,8 @@ import bubble2 from '../pics/bubbleTwo.png';
 import plan from '../pics/plan-step.png';
 
 import Qiz from './Qiz';
-import StudyPlan from './StudyPlan'
+import StudyPlan from './StudyPlan';
+import Flashcards from './Flashcards';
 
 import '../App.css';
 
@@ -58,6 +59,7 @@ function App() {
 
                 <div className="tagline mt-5 ">
                     <p> We make the <span className="qiz-text"> Qiz</span>, <br></br>you
+                    {/* We make the <span className="qiz-text"> Qiz</span>, <br></br>you */}
                     <Typewriter 
                         options={{
                         strings: ['ACE the test!', 'SUCCEED!', 'SHINE bright!'],
@@ -92,13 +94,14 @@ function App() {
             </div>
 
             <div className="footer"> 
-                {/* <div class="credit">&copy; <span id="currentYear"></span> by <span> CSS Qiz</span> | All Rights Reserved</div> */}
-                <div class="credit">&copy; {currentYear} by <span>CSS Qiz</span> | All Rights Reserved</div>
+                {/* <div className="credit">&copy; <span id="currentYear"></span> by <span> CSS Qiz</span> | All Rights Reserved</div> */}
+                <div className="credit">&copy; {currentYear} by <span>CSS Qiz</span> | All Rights Reserved</div>
             </div>
 
             <Routes>
                 <Route path="./Qiz" element={<Qiz />} />
                 <Route path="./StudyPlan" element={<StudyPlan />} />
+                <Route path="./Flashcards" element={<Flashcards />} />
             </Routes>
 
         </div>
