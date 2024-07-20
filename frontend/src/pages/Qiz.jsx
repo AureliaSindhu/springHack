@@ -5,7 +5,6 @@ import sideline from '../pics/side-line.png';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import qLogo from '../pics/q-logo.png';
 
-// Replace with your actual API key
 const apikey = import.meta.env.VITE_GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(apikey);
 
