@@ -520,7 +520,7 @@ html, body{
 }
 
 /* StudyPlan JS*/
-.plan-container {
+.plan-container, .flashcards-container {
   display: flex;
   flex-direction: row;
 }

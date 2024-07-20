@@ -1,9 +1,17 @@
 import React from 'react';
+import Navbar from './Navbar';
 import { useLocation } from 'react-router-dom';
+import sideline from '../pics/side-line.png';
 
 const Flashcards = () => {
     const location = useLocation();
     const { flashcards = [], multipleChoiceQuestions = [], topic = '' } = location.state || {};
+
+    const [planColor, setPlanColor] = React.useState('#008cf2');
+
+    const changeColor = () => {
+        setPlanColor('#008cf2');
+    };
 
     // Debugging: Log the data to verify it's coming through
     console.log('Flashcards data:', flashcards);
@@ -12,6 +20,12 @@ const Flashcards = () => {
 
     return (
         <div className="flashcards-container">
+            <div className="left-side mt-4">
+                <Navbar planColor={planColor}/>
+
+            </div>
+            <img src={sideline} alt="line" className="side-line" />
+
             <h1>Flashcards and Quiz for <span>{topic}</span></h1>
 
             <div className="flashcards-list">
