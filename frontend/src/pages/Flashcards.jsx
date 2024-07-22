@@ -59,8 +59,8 @@ const Flashcards = () => {
     const { flashcards = [], multipleChoiceQuestions = [], topic = '' } = location.state || {};
 
     useEffect(() => {
-        console.log('Flashcards:', flashcards);
-        console.log('Multiple Choice Questions:', multipleChoiceQuestions);
+        console.log('Flashcards Data Received:', flashcards);
+        console.log('Multiple Choice Questions Data Received:', multipleChoiceQuestions);
         console.log('Topic:', topic);
     }, [flashcards, multipleChoiceQuestions, topic]);
 

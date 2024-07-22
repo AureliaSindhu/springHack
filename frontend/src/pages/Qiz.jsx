@@ -190,7 +190,11 @@ import sideline from '../pics/side-line.png';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import qLogo from '../pics/q-logo.png';
 
+// Ensure the API key is present
 const apikey = import.meta.env.VITE_GEMINI_API_KEY;
+if (!apikey) {
+    throw new Error('API key is missing!');
+}
 const genAI = new GoogleGenerativeAI(apikey);
 
 const Qiz = () => {
@@ -202,7 +206,7 @@ const Qiz = () => {
     const [iconVisible, setIconVisible] = useState(false);
     const fileInputRef = useRef(null);
     const navigate = useNavigate();
-    const [qizColor, setQizColor] = React.useState('#008cf2');
+    const [qizColor, setQizColor] = useState('#008cf2');
 
     const handleTopicChange = (event) => {
         setTopic(event.target.value);
@@ -252,14 +256,12 @@ const Qiz = () => {
     
             console.log('Parsed Flashcards Response:', parsedFlashcardsResponse);
     
-            // Ensure the structure is as expected
-            const { flashcards: cards = [] } = parsedFlashcardsResponse;
-    
-            if (!Array.isArray(cards)) {
+            // Ensure the response is an array
+            if (Array.isArray(parsedFlashcardsResponse)) {
+                setFlashcards(parsedFlashcardsResponse);
+            } else {
                 throw new Error('Invalid flashcards response structure');
             }
-    
-            setFlashcards(cards);
     
         } catch (error) {
             console.error('Error generating flashcards:', error);
@@ -297,14 +299,12 @@ const Qiz = () => {
     
             console.log('Parsed Quiz Response:', parsedQuizResponse);
     
-            // Ensure the structure is as expected
-            const { multiple_choice_questions: questions = [] } = parsedQuizResponse;
-    
-            if (!Array.isArray(questions)) {
+            // Ensure the response has questions array
+            if (parsedQuizResponse && Array.isArray(parsedQuizResponse.questions)) {
+                setMultipleChoiceQuestions(parsedQuizResponse.questions);
+            } else {
                 throw new Error('Invalid quiz response structure');
             }
-    
-            setMultipleChoiceQuestions(questions);
     
         } catch (error) {
             console.error('Error generating quiz questions:', error);
@@ -320,18 +320,30 @@ const Qiz = () => {
     
         setIconVisible(true);
     
-        // Generate Flashcards and Quiz Questions
-        await generateFlashcards();
-        await generateMultipleChoiceQuestions();
+        try {
+            await generateFlashcards();
+            await generateMultipleChoiceQuestions();
     
-        // Ensure that flashcards and questions are set
-        console.log('Flashcards:', flashcards);
-        console.log('Multiple Choice Questions:', multipleChoiceQuestions);
+            // Wait until flashcards and questions are set
+            // Added explicit delay to wait for state updates
+            await new Promise(resolve => setTimeout(resolve, 1000));
     
-        navigate('/flashcards', { state: { flashcards, multipleChoiceQuestions, topic } });
+            console.log('Flashcards:', flashcards);
+            console.log('Multiple Choice Questions:', multipleChoiceQuestions);
     
-        setIconVisible(false);
-    };    
+            // Check if data exists before navigating
+            if (flashcards.length > 0 && multipleChoiceQuestions.length > 0) {
+                navigate('/flashcards', { state: { flashcards, multipleChoiceQuestions, topic } });
+            } else {
+                alert('Failed to generate flashcards or quiz questions.');
+            }
+        } catch (error) {
+            console.error('Error in handleGenerateQuiz:', error);
+            alert('An error occurred while generating the quiz. Please try again.');
+        } finally {
+            setIconVisible(false);
+        }
+    };
 
     return (
         <div className="qiz-container">
@@ -413,7 +425,7 @@ const Qiz = () => {
                                 Download Material
                             </a>
                         )}
-                        {/* <img src='icon.png' className={iconVisible ? 'iconTurn visible' : 'iconTurn'} /> Conditionally apply visible class */}
+                        <img src='icon.png' className={iconVisible ? 'iconTurn visible' : 'iconTurn'} alt="loading icon" />
                     </div>
                 </div>
             </div>
