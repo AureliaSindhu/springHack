@@ -45,7 +45,7 @@ const Qiz = () => {
         }
     
         try {
-            const prompt = `Generate a set of flashcards and multiple-choice questions for the topic: "${topic}". Provide 5 flashcards and 5 multiple-choice questions with 4 options each. Include the correct answer for each question.`;
+            const prompt = `Generate a set of flashcards and multiple-choice questions for the topic: "${topic}". Provide 10 flashcards and 5 multiple-choice questions with 4 options each. Include the correct answer for each question.`;
     
             const model = genAI.getGenerativeModel({
                 model: "gemini-1.5-flash",

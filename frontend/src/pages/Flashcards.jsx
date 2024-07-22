@@ -7,10 +7,10 @@ const Flashcards = () => {
     const location = useLocation();
     const { flashcards = [], multipleChoiceQuestions = [], topic = '' } = location.state || {};
 
-    const [planColor, setPlanColor] = React.useState('#008cf2');
+    const [qizColor, setQizColor] = React.useState('#008cf2');
 
     const changeColor = () => {
-        setPlanColor('#008cf2');
+        setQizColor('#008cf2');
     };
 
     // Debugging: Log the data to verify it's coming through
@@ -21,7 +21,7 @@ const Flashcards = () => {
     return (
         <div className="flashcards-container">
             <div className="left-side mt-4">
-                <Navbar planColor={planColor}/>
+                <Navbar qizColor={qizColor}/>
 
             </div>
             <img src={sideline} alt="line" className="side-line" />
