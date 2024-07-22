@@ -228,9 +228,9 @@ const Qiz = () => {
     const generateFlashcards = async () => {
         if (!topic) {
             alert('Please provide a topic.');
-            return;
+            return null;
         }
-    
+
         try {
             const flashcardsPrompt = `Generate 10 flashcards for the topic: "${topic}". Each flashcard should have a question (front) and answer (back).`;
             const flashcardsModel = genAI.getGenerativeModel({
@@ -244,7 +244,7 @@ const Qiz = () => {
             const flashcardsResponse = await flashcardsResult.response;
             const flashcardsText = await flashcardsResponse.text();
             console.log('Flashcards API Response Text:', flashcardsText);
-    
+
             let parsedFlashcardsResponse;
             try {
                 parsedFlashcardsResponse = JSON.parse(flashcardsText);
@@ -252,25 +252,26 @@ const Qiz = () => {
                 console.error('Error parsing JSON:', error);
                 throw new Error('Failed to parse flashcards response');
             }
-    
+
             console.log('Parsed Flashcards Response:', parsedFlashcardsResponse);
-    
+
             if (Array.isArray(parsedFlashcardsResponse)) {
-                setFlashcards(parsedFlashcardsResponse);
+                return parsedFlashcardsResponse;
             } else {
                 throw new Error('Invalid flashcards response structure');
             }
-    
+
         } catch (error) {
             console.error('Error generating flashcards:', error);
             alert('An error occurred while generating flashcards. Please try again.');
+            return null;
         }
     };
 
     const generateMultipleChoiceQuestions = async () => {
         if (!topic) {
             alert('Please provide a topic.');
-            return;
+            return null;
         }
 
         try {
@@ -298,7 +299,7 @@ const Qiz = () => {
             console.log('Parsed Quiz Response:', parsedQuizResponse);
 
             if (Array.isArray(parsedQuizResponse)) {
-                setMultipleChoiceQuestions(parsedQuizResponse);
+                return parsedQuizResponse;
             } else {
                 throw new Error('Invalid quiz response structure');
             }
@@ -306,6 +307,7 @@ const Qiz = () => {
         } catch (error) {
             console.error('Error generating quiz questions:', error);
             alert('An error occurred while generating quiz questions. Please try again.');
+            return null;
         }
     };
 
@@ -318,15 +320,15 @@ const Qiz = () => {
         setIconVisible(true);
 
         try {
-            await Promise.all([generateFlashcards(), generateMultipleChoiceQuestions()]);
+            const flashcardsResult = await generateFlashcards();
+            const multipleChoiceQuestionsResult = await generateMultipleChoiceQuestions();
 
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            if (flashcardsResult && multipleChoiceQuestionsResult) {
+                setFlashcards(flashcardsResult);
+                setMultipleChoiceQuestions(multipleChoiceQuestionsResult);
 
-            console.log('Flashcards:', flashcards);
-            console.log('Multiple Choice Questions:', multipleChoiceQuestions);
-
-            if (flashcards.length > 0 && multipleChoiceQuestions.length > 0) {
-                navigate('/flashcards', { state: { flashcards, multipleChoiceQuestions, topic } });
+                // Navigate after setting the state
+                navigate('/flashcards', { state: { flashcards: flashcardsResult, multipleChoiceQuestions: multipleChoiceQuestionsResult, topic } });
             } else {
                 alert('Failed to generate flashcards or quiz questions.');
             }
@@ -421,73 +423,7 @@ const Qiz = () => {
                         {/* <img src='icon.png' className={iconVisible ? 'iconTurn visible' : 'iconTurn'} alt="loading icon" /> */}
                     </div>
                 </div>
-                <div className="flashcards-section">
-                    {flashcards.length > 0 && (
-                        <div>
-                            <h2>Flashcards</h2>
-                            {flashcards.map((flashcard, index) => (
-                                <div key={index}>
-                                    <p><strong>Q:</strong> {flashcard.front}</p>
-                                    <p><strong>A:</strong> {flashcard.back}</p>
-                                </div>
-                            ))}
-                        </div>
-                    )}
-                </div>
-                <div className="multiple-choice-section">
-                    {multipleChoiceQuestions.length > 0 && (
-                        <MultipleChoiceQuiz questions={multipleChoiceQuestions} />
-                    )}
-                </div>
             </div>
-        </div>
-    );
-};
-
-const MultipleChoiceQuiz = ({ questions }) => {
-    const [selectedAnswers, setSelectedAnswers] = useState(Array(questions.length).fill(null));
-    const [showResults, setShowResults] = useState(false);
-
-    const handleAnswerSelect = (questionIndex, answerIndex) => {
-        const updatedAnswers = [...selectedAnswers];
-        updatedAnswers[questionIndex] = answerIndex;
-        setSelectedAnswers(updatedAnswers);
-    };
-
-    const handleShowResults = () => {
-        setShowResults(true);
-    };
-
-    return (
-        <div className="multiple-choice-quiz">
-            <h2>Multiple Choice Quiz</h2>
-            {questions.map((question, questionIndex) => (
-                <div key={questionIndex} className="question-block">
-                    <p>{question.question}</p>
-                    {question.options.map((option, answerIndex) => (
-                        <button
-                            key={answerIndex}
-                            className={`answer-button ${showResults && selectedAnswers[questionIndex] === answerIndex ? (question.answer === option ? 'correct' : 'incorrect') : ''}`}
-                            onClick={() => handleAnswerSelect(questionIndex, answerIndex)}
-                            disabled={showResults}
-                        >
-                            {option}
-                        </button>
-                    ))}
-                    {showResults && (
-                        <p className="result">
-                            {selectedAnswers[questionIndex] === question.options.indexOf(question.answer)
-                                ? 'Correct!'
-                                : `Incorrect, the correct answer is ${question.answer}`}
-                        </p>
-                    )}
-                </div>
-            ))}
-            {!showResults && (
-                <button onClick={handleShowResults} className="show-results-button">
-                    Show Results
-                </button>
-            )}
         </div>
     );
 };
