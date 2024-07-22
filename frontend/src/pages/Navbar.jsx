@@ -7,6 +7,10 @@ import horline from '../pics/hor-line.png'
 const Navbar = ({planColor, qizColor}) => {
   const navigate = useNavigate();
 
+  const Home = () => {
+    navigate('/Home');  
+  };
+
   const handleClick = () => {
     navigate('/Qiz');  
   };
@@ -15,11 +19,15 @@ const Navbar = ({planColor, qizColor}) => {
     navigate('/StudyPlan');  
   };
 
+  const abtUs = () => {
+    navigate('/AboutUs');  
+  };
+
   return (
     <nav className="sideNav">
       <div className="up">
-        <img src={logo} className="App-logo" alt="logo" />
-        <a href="#" className="body-nav-abt mx-4 my-0"> About Us </a>
+        <img src={logo} className="App-logo" alt="logo" onClick={Home}/>
+        <a href="#" className="body-nav-abt mx-4 my-0" onClick={abtUs}> About Us </a>
         <h6 className="mx-4"> Other Features</h6>
         <a href="#" className="body-nav mx-5 my-0" onClick={handleClick2} style={{color: planColor}}> Generate Plan </a>
         <a href="#" className="body-nav mx-5 my-0" onClick={handleClick} style={{color: qizColor}}> Generate Qiz </a>

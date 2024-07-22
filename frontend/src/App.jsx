@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Qiz from './pages/Qiz';
 import StudyPlan from './pages/StudyPlan';
 import Flashcards from './pages/Flashcards';
+import PlanPage from './pages/PlanPage';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
             <Route path="/studyPlan" element={<StudyPlan />} />
             <Route path="/flashcards" element={<Flashcards />} />
             <Route path="/*" element={<Home />} /> 
+            <Route path="/*" element={<StudyPlan />} />
+              <Route path="/plan-page" element={<PlanPage />} />
           </Routes>
         </main>
 

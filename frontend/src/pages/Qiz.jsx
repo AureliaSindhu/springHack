@@ -211,25 +211,27 @@ const Qiz = () => {
                             />
                         </div>
 
-                        {!file && (
-                            <div className="generateBar">
-                                <input
-                                    type="text"
-                                    placeholder="Enter a topic"
-                                    value={topic}
-                                    onChange={handleTopicChange}
-                                />
-                            </div>
-                        )}
+                        <div className="chatBox d-inline-flex">
+                            {!file && (
+                                <div className="generateBar">
+                                    <input
+                                        type="text"
+                                        placeholder="Enter a topic"
+                                        value={topic}
+                                        onChange={handleTopicChange}
+                                    />
+                                </div>
+                            )}
 
-                        <button
-                            className="header-right-btn mx-3 mt-2"
-                            onClick={handleGenerateQuiz}
-                            disabled={!topic && !file}
-                        >
-                            Generate
-                        </button>
-
+                            <button
+                                className="header-right-btn mx-3 mt-2"
+                                onClick={handleGenerateQuiz}
+                                disabled={!topic && !file}
+                            >
+                                Generate
+                            </button>
+                        </div>
+                        
                         {downloadLink && (
                             <a href={downloadLink} className="btn btn-primary mt-3" download>
                                 Download Material
