@@ -56,7 +56,7 @@ function StudyPlan() {
                         {/* Show file upload button */}
                         <button className="input-button" onClick={handleUploadClick}>
                             <div className="input-box">
-                                <h2> <span class="click-here">Click here </span>to upload your
+                                <h2> <span className="click-here">Click here </span>to upload your
                                     schedule and we'll do the rest!
                                 </h2>
                                 {/* <button type='button' onClick={handleUploadClick}>

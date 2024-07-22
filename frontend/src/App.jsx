@@ -17,7 +17,7 @@ function App() {
             <Route path="/qiz" element={<Qiz />} />
             <Route path="/studyPlan" element={<StudyPlan />} />
             <Route path="/flashcards" element={<Flashcards />} />
-            <Route path="*" element={<Home />} /> 
+            <Route path="/*" element={<Home />} /> 
           </Routes>
         </main>
 
