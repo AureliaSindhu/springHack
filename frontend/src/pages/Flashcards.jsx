@@ -47,7 +47,7 @@
 
 // export default Flashcards;
 
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import { useLocation } from 'react-router-dom';
 import sideline from '../pics/side-line.png';
@@ -57,6 +57,8 @@ import MultipleChoiceQuiz from './MultipleChoiceQuiz';
 const Flashcards = () => {
     const location = useLocation();
     const { flashcards = [], multipleChoiceQuestions = [], topic = '' } = location.state || {};
+
+    const [activeTab, setActiveTab] = useState('flashcards');
 
     useEffect(() => {
         console.log('Flashcards Data Received:', flashcards);
@@ -79,17 +81,32 @@ const Flashcards = () => {
 
             <div className="flashcardSec">
                 <h1>Flashcards and Quiz for <span>{topic}</span></h1>
+                
+                <div className="tabs">
+                    <button
+                        className={activeTab === 'flashcards' ? 'tab active' : 'tab'}
+                        onClick={() => setActiveTab('flashcards')}
+                    >
+                        Flashcards
+                    </button>
+                    <button
+                        className={activeTab === 'multipleChoice' ? 'tab active' : 'tab'}
+                        onClick={() => setActiveTab('multipleChoice')}
+                    >
+                        Multiple Choice
+                    </button>
+                </div>
 
-                {flashcards.length > 0 ? (
+                {activeTab === 'flashcards' && flashcards.length > 0 ? (
                     <FlashcardsList flashcards={flashcards} />
                 ) : (
-                    <p>No flashcards available.</p>
+                    activeTab === 'flashcards' && <p>No flashcards available.</p>
                 )}
 
-                {multipleChoiceQuestions.length > 0 ? (
+                {activeTab === 'multipleChoice' && multipleChoiceQuestions.length > 0 ? (
                     <MultipleChoiceQuiz questions={multipleChoiceQuestions} />
                 ) : (
-                    <p>No multiple choice questions available.</p>
+                    activeTab === 'multipleChoice' && <p>No multiple choice questions available.</p>
                 )}
             </div>
         </div>
@@ -97,3 +114,4 @@ const Flashcards = () => {
 };
 
 export default Flashcards;
+
