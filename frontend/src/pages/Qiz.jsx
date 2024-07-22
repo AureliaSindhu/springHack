@@ -190,7 +190,6 @@ import sideline from '../pics/side-line.png';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import qLogo from '../pics/q-logo.png';
 
-// Ensure the API key is present
 const apikey = import.meta.env.VITE_GEMINI_API_KEY;
 if (!apikey) {
     throw new Error('API key is missing!');
@@ -240,7 +239,7 @@ const Qiz = () => {
                     response_mime_type: "application/json"
                 }
             });
-    
+
             const flashcardsResult = await flashcardsModel.generateContent(flashcardsPrompt);
             const flashcardsResponse = await flashcardsResult.response;
             const flashcardsText = await flashcardsResponse.text();
@@ -256,7 +255,6 @@ const Qiz = () => {
     
             console.log('Parsed Flashcards Response:', parsedFlashcardsResponse);
     
-            // Ensure the response is an array
             if (Array.isArray(parsedFlashcardsResponse)) {
                 setFlashcards(parsedFlashcardsResponse);
             } else {
@@ -268,13 +266,13 @@ const Qiz = () => {
             alert('An error occurred while generating flashcards. Please try again.');
         }
     };
-    
+
     const generateMultipleChoiceQuestions = async () => {
         if (!topic) {
             alert('Please provide a topic.');
             return;
         }
-    
+
         try {
             const quizPrompt = `Generate 10 multiple-choice questions with 4 options each for the topic: "${topic}". Include the correct answer for each question.`;
             const quizModel = genAI.getGenerativeModel({
@@ -283,12 +281,12 @@ const Qiz = () => {
                     response_mime_type: "application/json"
                 }
             });
-    
+
             const quizResult = await quizModel.generateContent(quizPrompt);
             const quizResponse = await quizResult.response;
             const quizText = await quizResponse.text();
             console.log('Quiz API Response Text:', quizText);
-    
+
             let parsedQuizResponse;
             try {
                 parsedQuizResponse = JSON.parse(quizText);
@@ -296,42 +294,37 @@ const Qiz = () => {
                 console.error('Error parsing JSON:', error);
                 throw new Error('Failed to parse quiz response');
             }
-    
+
             console.log('Parsed Quiz Response:', parsedQuizResponse);
-    
-            // Ensure the response has questions array
-            if (parsedQuizResponse && Array.isArray(parsedQuizResponse.questions)) {
-                setMultipleChoiceQuestions(parsedQuizResponse.questions);
+
+            if (Array.isArray(parsedQuizResponse)) {
+                setMultipleChoiceQuestions(parsedQuizResponse);
             } else {
                 throw new Error('Invalid quiz response structure');
             }
-    
+
         } catch (error) {
             console.error('Error generating quiz questions:', error);
             alert('An error occurred while generating quiz questions. Please try again.');
         }
-    };    
+    };
 
     const handleGenerateQuiz = async () => {
         if (!topic && !file) {
             alert('Please provide either a file or a topic.');
             return;
         }
-    
+
         setIconVisible(true);
-    
+
         try {
-            await generateFlashcards();
-            await generateMultipleChoiceQuestions();
-    
-            // Wait until flashcards and questions are set
-            // Added explicit delay to wait for state updates
+            await Promise.all([generateFlashcards(), generateMultipleChoiceQuestions()]);
+
             await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
             console.log('Flashcards:', flashcards);
             console.log('Multiple Choice Questions:', multipleChoiceQuestions);
-    
-            // Check if data exists before navigating
+
             if (flashcards.length > 0 && multipleChoiceQuestions.length > 0) {
                 navigate('/flashcards', { state: { flashcards, multipleChoiceQuestions, topic } });
             } else {
@@ -425,10 +418,76 @@ const Qiz = () => {
                                 Download Material
                             </a>
                         )}
-                        <img src='icon.png' className={iconVisible ? 'iconTurn visible' : 'iconTurn'} alt="loading icon" />
+                        {/* <img src='icon.png' className={iconVisible ? 'iconTurn visible' : 'iconTurn'} alt="loading icon" /> */}
                     </div>
                 </div>
+                <div className="flashcards-section">
+                    {flashcards.length > 0 && (
+                        <div>
+                            <h2>Flashcards</h2>
+                            {flashcards.map((flashcard, index) => (
+                                <div key={index}>
+                                    <p><strong>Q:</strong> {flashcard.front}</p>
+                                    <p><strong>A:</strong> {flashcard.back}</p>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+                <div className="multiple-choice-section">
+                    {multipleChoiceQuestions.length > 0 && (
+                        <MultipleChoiceQuiz questions={multipleChoiceQuestions} />
+                    )}
+                </div>
             </div>
+        </div>
+    );
+};
+
+const MultipleChoiceQuiz = ({ questions }) => {
+    const [selectedAnswers, setSelectedAnswers] = useState(Array(questions.length).fill(null));
+    const [showResults, setShowResults] = useState(false);
+
+    const handleAnswerSelect = (questionIndex, answerIndex) => {
+        const updatedAnswers = [...selectedAnswers];
+        updatedAnswers[questionIndex] = answerIndex;
+        setSelectedAnswers(updatedAnswers);
+    };
+
+    const handleShowResults = () => {
+        setShowResults(true);
+    };
+
+    return (
+        <div className="multiple-choice-quiz">
+            <h2>Multiple Choice Quiz</h2>
+            {questions.map((question, questionIndex) => (
+                <div key={questionIndex} className="question-block">
+                    <p>{question.question}</p>
+                    {question.options.map((option, answerIndex) => (
+                        <button
+                            key={answerIndex}
+                            className={`answer-button ${showResults && selectedAnswers[questionIndex] === answerIndex ? (question.answer === option ? 'correct' : 'incorrect') : ''}`}
+                            onClick={() => handleAnswerSelect(questionIndex, answerIndex)}
+                            disabled={showResults}
+                        >
+                            {option}
+                        </button>
+                    ))}
+                    {showResults && (
+                        <p className="result">
+                            {selectedAnswers[questionIndex] === question.options.indexOf(question.answer)
+                                ? 'Correct!'
+                                : `Incorrect, the correct answer is ${question.answer}`}
+                        </p>
+                    )}
+                </div>
+            ))}
+            {!showResults && (
+                <button onClick={handleShowResults} className="show-results-button">
+                    Show Results
+                </button>
+            )}
         </div>
     );
 };
