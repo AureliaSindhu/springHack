@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import sideline from '../pics/side-line.png';
 import qLogo from '../pics/q-logo.png';
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import PlanPage from './PlanPage'; 
 
 const apikey = import.meta.env.VITE_GEMINI_API_KEY;
 if (!apikey) {
@@ -66,8 +65,6 @@ function StudyPlan() {
                 parsedPlanResponse = JSON.parse(planResponse);
             } catch (error) {
                 console.error('Error parsing JSON:', error);
-                // Log a portion of the response to debug
-                console.error('Response Snippet:', planResponse.slice(15680, 15720)); // Adjust as needed
                 throw new Error('Failed to parse plan response');
             }
 
@@ -75,7 +72,6 @@ function StudyPlan() {
 
             if (typeof parsedPlanResponse === 'object' && !Array.isArray(parsedPlanResponse)) {
                 setPlan(parsedPlanResponse);
-                // Navigate to the new PlanPage with the generated plan data
                 navigate('/plan-page', { state: { plan: parsedPlanResponse } });
             } else {
                 throw new Error('Invalid plan response structure');
