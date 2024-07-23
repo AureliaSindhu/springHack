@@ -5,11 +5,20 @@ import Navbar from './Navbar';
 const PlanPage = () => {
     const [planColor] = React.useState('#008cf2');
     const location = useLocation();
-    const { plan } = location.state || {}; 
+    const { plan } = location.state || {};
 
     if (!plan) {
         return <p>No plan available</p>;
     }
+
+    const weeks = plan.weeks.map((weekData, index) => ({
+        weekNumber: index + 1,
+        weekGoal: weekData.week_goal,
+        dailyTasks: weekData.daily_tasks,
+        evaluation: weekData.evaluation
+    }));
+
+    console.log(weeks); 
 
     return (
         <div className="planDisplay">
@@ -19,32 +28,33 @@ const PlanPage = () => {
 
             <div className="plan-page">
                 <h1>Generated Study Plan</h1>
-                {Object.keys(plan).map((week) => {
-                    const { title, days = [] } = plan[week];  // Ensure days is always an array
-
-                    return (
-                        <div key={week}>
-                            <h2>{week}</h2>
-                            <h2>{title}</h2>
-                            <ul>
-                                {days.length > 0 ? (
-                                    days.map((day, dayIndex) => (
-                                        <li key={dayIndex}>
-                                            <strong>{day.day}:</strong>
-                                            <ul>
-                                                {day.tasks.map((task, taskIndex) => (
-                                                    <li key={taskIndex}>{task}</li>
-                                                ))}
-                                            </ul>
-                                        </li>
-                                    ))
-                                ) : (
-                                    <p>No tasks available for this week.</p>
-                                )}
-                            </ul>
-                        </div>
-                    );
-                })}
+                {weeks.map((week) => (
+                    <div key={week.weekNumber}>
+                        <h2>Week {week.weekNumber}</h2>
+                        <h3>Goal</h3>
+                        <p>{week.weekGoal}</p>
+                        <h3>Daily Tasks</h3>
+                        <ul>
+                            {week.dailyTasks.length ? (
+                                week.dailyTasks.map((task, index) => (
+                                    <li key={index}>
+                                        <strong>{task.day}:</strong> {task.task}
+                                        <ul>
+                                            {task.resources && task.resources.map((resource, resIndex) => (
+                                                <li key={resIndex}><a href={resource}>{resource}</a></li>
+                                            ))}
+                                        </ul>
+                                        <p><strong>Evaluation:</strong> {task.evaluation}</p>
+                                    </li>
+                                ))
+                            ) : (
+                                <li>No daily tasks available</li>
+                            )}
+                        </ul>
+                        <h3>Evaluation Criteria</h3>
+                        <p>{week.evaluation}</p>
+                    </div>
+                ))}
             </div>
         </div>
     );

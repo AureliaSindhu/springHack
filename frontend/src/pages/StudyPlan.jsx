@@ -43,34 +43,36 @@ function StudyPlan() {
             alert('Please provide plan details or upload a file.');
             return;
         }
-
+    
         try {
             console.log('Generating plan with input:', planDetails);
-
-            const planPrompt = `Generate a detailed weekly plan to achieve the goal which is "${planDetails}".`;
+    
+            const planPrompt = `Generate a detailed study plan for "${planDetails}" that spans multiple weeks. Include specific weekly goals, daily tasks, resources, and methods for evaluation.`;
             const planModel = genAI.getGenerativeModel({
                 model: 'gemini-1.5-flash',
                 generationConfig: {
                     response_mime_type: 'application/json',
                 },
             });
-
+    
             const planResult = await planModel.generateContent(planPrompt);
             const planResponse = await planResult.response.text();
             console.log('Plan API Response Text:', planResponse);
-
+    
             let parsedPlanResponse;
             try {
-                // Validate JSON response
+                // Try to parse the JSON response
                 parsedPlanResponse = JSON.parse(planResponse);
             } catch (error) {
                 console.error('Error parsing JSON:', error);
-                throw new Error('Failed to parse plan response');
+                alert('An error occurred while parsing the plan response. Please check the API response.');
+                return;
             }
-
+    
             console.log('Parsed Plan Response:', parsedPlanResponse);
-
-            if (typeof parsedPlanResponse === 'object' && !Array.isArray(parsedPlanResponse)) {
+    
+            // Check if the response structure is correct
+            if (parsedPlanResponse && Object.keys(parsedPlanResponse).length > 0) {
                 setPlan(parsedPlanResponse);
                 navigate('/plan-page', { state: { plan: parsedPlanResponse } });
             } else {
@@ -80,7 +82,8 @@ function StudyPlan() {
             console.error('Error generating plan:', error);
             alert('An error occurred while generating the plan. Please try again.');
         }
-    };
+    };    
+    
 
     return (
         <div className="plan-container">
