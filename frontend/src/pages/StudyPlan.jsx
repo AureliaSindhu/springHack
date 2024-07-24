@@ -71,8 +71,8 @@ function StudyPlan() {
     
             console.log('Parsed Plan Response:', parsedPlanResponse);
     
-            // Check if the response structure is correct
-            if (parsedPlanResponse && Object.keys(parsedPlanResponse).length > 0) {
+            // Validate response structure
+            if (parsedPlanResponse && parsedPlanResponse.weeks && Array.isArray(parsedPlanResponse.weeks)) {
                 setPlan(parsedPlanResponse);
                 navigate('/plan-page', { state: { plan: parsedPlanResponse } });
             } else {
