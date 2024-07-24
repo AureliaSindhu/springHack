@@ -61,7 +61,6 @@ function StudyPlan() {
     
             let parsedPlanResponse;
             try {
-                // Try to parse the JSON response
                 parsedPlanResponse = JSON.parse(planResponse);
             } catch (error) {
                 console.error('Error parsing JSON:', error);
@@ -70,8 +69,7 @@ function StudyPlan() {
             }
     
             console.log('Parsed Plan Response:', parsedPlanResponse);
-    
-            // Validate response structure
+
             if (parsedPlanResponse && parsedPlanResponse.weeks && Array.isArray(parsedPlanResponse.weeks)) {
                 setPlan(parsedPlanResponse);
                 navigate('/plan-page', { state: { plan: parsedPlanResponse } });

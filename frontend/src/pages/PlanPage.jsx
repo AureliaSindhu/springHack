@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
+import sideline from '../pics/side-line.png';
 
 const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
@@ -16,8 +17,8 @@ const PlanPage = () => {
     const weeks = plan.weeks.map((weekData, index) => ({
         weekNumber: weekData.week_number || index + 1,
         weekGoal: weekData.week_goal || 'No goal defined',
-        dailyTasks: weekData.daily_tasks || [], // Default to empty array if undefined
-        evaluation: weekData.evaluation || [] // Default to empty array if undefined
+        dailyTasks: weekData.daily_tasks || [],
+        evaluation: weekData.evaluation || [] 
     }));
 
     console.log(weeks);
@@ -27,6 +28,8 @@ const PlanPage = () => {
             <div className="left-side mt-4">
                 <Navbar planColor={planColor} />
             </div>
+
+            <img src={sideline} alt="line" className="side-line" /> 
 
             <div className="plan-page">
                 <h1>Generated Study Plan</h1>
