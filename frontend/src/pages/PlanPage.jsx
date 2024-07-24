@@ -2,6 +2,8 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 
+const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+
 const PlanPage = () => {
     const [planColor] = React.useState('#008cf2');
     const location = useLocation();
