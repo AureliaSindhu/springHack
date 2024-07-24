@@ -18,7 +18,8 @@ const Navbar = ({planColor, qizColor}) => {
         <a href="#" className="body-nav mx-5 my-0" style={{color: planColor}}> Generate Plan </a>
         <a href="#" className="body-nav mx-5 my-0" style={{color: qizColor}}> Generate Qiz </a>
       </div>
-      <img src={horline} alt="line" className="hor-line"/>
+      {/* <img src={horline} alt="line" className="hor-line"/> */}
+      <div className="hor-line"></div>
       <div className="down">
         <h6 className="mx-4"> Past Documents </h6>
         {/* function to call the past document */}
