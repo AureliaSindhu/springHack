@@ -3,8 +3,10 @@ import Navbar from './Navbar';
 import { Link, useNavigate } from 'react-router-dom';
 import sideline from '../pics/side-line.png';
 import qLogo from '../pics/q-logo.png';
+// Ensure correct import based on the actual package/library
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
+// Ensure apikey is correctly retrieved and exists
 const apikey = import.meta.env.VITE_GEMINI_API_KEY;
 if (!apikey) {
     throw new Error('API key is missing!');
