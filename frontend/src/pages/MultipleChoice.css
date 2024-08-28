@@ -1,0 +1,93 @@
+.multiple-choice-quiz {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: "Outfit", sans-serif;
+    color: #292621;
+}
+
+.options-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.answer-button {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #eaeaea;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.answer-button:hover {
+    background-color: #6fb9ee; /* Hover color */
+}
+
+.answer-button.selected {
+    background-color: #d4edfa; /* Color after clicking */
+}
+
+.answer-button.correct {
+    background-color: #4caf50;
+    color: white;
+}
+
+.answer-button.incorrect {
+    background-color: #f44336;
+    color: white;
+}
+/* 
+.result {
+    font-size: 1rem;
+    color: #6fb9ee;
+    margin-top: 10px;
+} */
+
+.result.correct {
+    color: #4caf50; /* Green color for correct answers */
+}
+
+.result.incorrect {
+    color: #6fb9ee; /* Blue color for incorrect answers */
+}
+
+
+.show-results-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.show-results-button:hover {
+    background-color: #0056b3;
+}

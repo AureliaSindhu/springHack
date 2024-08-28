@@ -1,4 +1,5 @@
 import React from 'react';
+import './Flashcards.css'
 
 const FlashcardsList = ({ flashcards }) => {
     return (

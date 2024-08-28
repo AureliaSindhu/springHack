@@ -219,14 +219,15 @@ const Qiz = () => {
                             />
                         </div>
 
-                        <div className="chatBox d-inline-flex">
+                        <div className="chatBox d-inline-flex mt-3">
                             {!file && (
-                                <div className="generateBar">
+                                <div className="generateBar mt-2 d-flex">
                                     <input
                                         type="text"
                                         placeholder="Enter a topic"
                                         value={topic}
                                         onChange={handleTopicChange}
+                                        className="w-100 border-0 rounded-3 p-2"
                                     />
                                 </div>
                             )}

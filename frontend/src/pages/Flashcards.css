@@ -37,7 +37,7 @@ h1{
 
 .tab {
     flex: 1;
-    padding: 15px;
+    padding: 5px;
     margin-right: 10px;
     font-size: 1.2rem;
     font-weight: bold;
@@ -105,4 +105,55 @@ h1{
     flex-wrap: wrap;
     justify-content: flex-start;
     margin-top: 20px;
+}
+
+.flashcards-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.flashcard {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    height: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.flashcard:hover {
+    transform: scale(1.05);
+}
+
+.question {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    font-family: "Outfit", sans-serif;
+}
+
+.answer {
+    font-size: 15px;
+    color: #666;
+    text-align: center;
+    display: none;
+    font-family: "Outfit", sans-serif;
+}
+
+.flashcard:hover .answer {
+    display: block;
+    color: #007bff;
+}
+
+.flashcard:hover .question {
+    color: #555;
 }

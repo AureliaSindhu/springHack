@@ -169,6 +169,10 @@ html, body{
 
 }
 
+/* .generateBar {
+  display: flex;
+} */
+
 .generate {
   display: flex;
   align-content: center;
