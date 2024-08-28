@@ -78,6 +78,14 @@ function StudyPlan() {
             } else {
                 throw new Error('Invalid plan response structure');
             }
+
+            // if (parsedPlanResponse.studyPlan && Array.isArray(parsedPlanResponse.studyPlan.weeks)){
+            //     setPlan(parsedPlanResponse.studyPlan);
+            //     navigate('/plan-page', { state: { plan: parsedPlanResponse.studyPlan}});
+            // } else{
+            //     throw new Error('Invalid plan response structure');
+            // }
+
         } catch (error) {
             console.error('Error generating plan:', error);
             alert('An error occurred while generating the plan. Please try again.');

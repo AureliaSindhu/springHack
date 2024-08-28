@@ -3,7 +3,7 @@ import React from 'react';
 const FlashcardsList = ({ flashcards }) => {
     return (
         <div className="flashcards-list">
-            <h2>Flashcards</h2>
+            {/* <h2>Flashcards</h2> */}
             {flashcards.map((flashcard, index) => (
                 <div key={index} className="flashcard">
                     <div className="question">{flashcard.front}</div>

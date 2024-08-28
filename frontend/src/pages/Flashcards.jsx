@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import sideline from '../pics/side-line.png';
 import FlashcardsList from './FlashcardsList';
 import MultipleChoiceQuiz from './MultipleChoiceQuiz';
+import './Flashcards.css'
 
 const Flashcards = () => {
     const location = useLocation();
@@ -24,14 +25,16 @@ const Flashcards = () => {
     };
 
     return (
-        <div className="flashcards-container">
+        <div className="flashcards-container m-0 p-0">
             <div className="left-side mt-4">
                 <Navbar qizColor={qizColor} />
             </div>
             <img src={sideline} alt="line" className="side-line" />
 
             <div className="flashcardSec">
-                <h1>Flashcards and Quiz for <span>{topic}</span></h1>
+                <h1 className="d-flex justify-content-left my-4">
+                    Flashcards and Quiz for <span className="topic-text">{topic}</span>
+                </h1>
                 
                 <div className="tabs">
                     <button

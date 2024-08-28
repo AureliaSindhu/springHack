@@ -70,11 +70,19 @@ const Qiz = () => {
 
             console.log('Parsed Flashcards Response:', parsedFlashcardsResponse);
 
-            if (Array.isArray(parsedFlashcardsResponse)) {
+            // if (Array.isArray(parsedFlashcardsResponse)) {
+            //     return parsedFlashcardsResponse;
+            // } else {
+            //     throw new Error('Invalid flashcards response structure');
+            // }
+
+            if (parsedFlashcardsResponse.data && Array.isArray(parsedFlashcardsResponse.data.flashcards)) {
+                return parsedFlashcardsResponse.data.flashcards;
+            } else if (Array.isArray(parsedFlashcardsResponse)) {
                 return parsedFlashcardsResponse;
             } else {
                 throw new Error('Invalid flashcards response structure');
-            }
+            }            
 
         } catch (error) {
             console.error('Error generating flashcards:', error);

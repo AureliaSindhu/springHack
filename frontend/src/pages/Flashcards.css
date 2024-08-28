@@ -1,0 +1,108 @@
+.flashcards-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.left-side{
+    flex: 1;
+}
+
+.flashcardSec{
+    flex: 3;
+    padding: 20px;
+}
+
+.side-line{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+h1{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    font-family: "OtomanopeeOne";
+    src: url(./font/OtomanopeeOne-Regular.ttf);
+}
+
+.topic-text {
+    color: #008cf2;
+    margin-left: 10px;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab {
+    flex: 1;
+    padding: 15px;
+    margin-right: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tab:hover {
+    background-color: #008cf2;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.tab.active {
+    background-color: #008cf2;
+    color: #fff;
+}
+
+.flashcards-container .flashcardSec p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-left: 10px;
+}
+
+.flashcards-container .flashcardSec .tab.active {
+    background-color: #008cf2;
+    color: white;
+}
+
+.flashcards-container .flashcardSec .tabs {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.flashcards-container .flashcardSec .tab {
+    flex: none;
+    padding: 15px 30px;
+    margin-right: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.flashcards-container .flashcardSec .tab:hover {
+    background-color: #008cf2;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.flashcards-container .flashcardSec .tab.active {
+    background-color: #008cf2;
+    color: white;
+}
+
+.flashcards-container .flashcardSec .flashcards-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
