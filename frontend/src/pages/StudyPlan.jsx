@@ -3,10 +3,8 @@ import Navbar from './Navbar';
 import { Link, useNavigate } from 'react-router-dom';
 import sideline from '../pics/side-line.png';
 import qLogo from '../pics/q-logo.png';
-// Ensure correct import based on the actual package/library
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-// Ensure apikey is correctly retrieved and exists
 const apikey = import.meta.env.VITE_GEMINI_API_KEY;
 if (!apikey) {
     throw new Error('API key is missing!');
@@ -14,7 +12,6 @@ if (!apikey) {
 const genAI = new GoogleGenerativeAI(apikey);
 
 function StudyPlan() {
-    const [topic, setTopic] = useState('Here you can add details about your study plan.');
     const [file, setFile] = useState(null);
     const [planDetails, setPlanDetails] = useState('');
     const [planColor, setPlanColor] = useState('#008cf2');
@@ -59,38 +56,31 @@ function StudyPlan() {
     
             const planResult = await planModel.generateContent(planPrompt);
             const planResponse = await planResult.response.text();
-            console.log('Plan API Response Text:', planResponse);
     
-            let parsedPlanResponse;
+            console.log('Raw Plan API Response:', planResponse);
+    
+            // Attempt to parse the response as JSON
             try {
-                parsedPlanResponse = JSON.parse(planResponse);
-            } catch (error) {
-                console.error('Error parsing JSON:', error);
+                const parsedPlanResponse = JSON.parse(planResponse);
+                console.log('Parsed Plan Response:', parsedPlanResponse);
+    
+                if (parsedPlanResponse && parsedPlanResponse.weeklyGoals) {
+                    setPlan(parsedPlanResponse);
+                    navigate('/plan-page', { state: { plan: parsedPlanResponse } });
+                } else {
+                    throw new Error('Invalid plan response structure');
+                }
+            } catch (parseError) {
+                console.error('Error parsing JSON:', parseError);
                 alert('An error occurred while parsing the plan response. Please check the API response.');
-                return;
             }
     
-            console.log('Parsed Plan Response:', parsedPlanResponse);
-
-            if (parsedPlanResponse && parsedPlanResponse.weeks && Array.isArray(parsedPlanResponse.weeks)) {
-                setPlan(parsedPlanResponse);
-                navigate('/plan-page', { state: { plan: parsedPlanResponse } });
-            } else {
-                throw new Error('Invalid plan response structure');
-            }
-
-            // if (parsedPlanResponse.studyPlan && Array.isArray(parsedPlanResponse.studyPlan.weeks)){
-            //     setPlan(parsedPlanResponse.studyPlan);
-            //     navigate('/plan-page', { state: { plan: parsedPlanResponse.studyPlan}});
-            // } else{
-            //     throw new Error('Invalid plan response structure');
-            // }
-
         } catch (error) {
             console.error('Error generating plan:', error);
             alert('An error occurred while generating the plan. Please try again.');
         }
-    };    
+    };
+    
     
 
     return (
@@ -113,8 +103,6 @@ function StudyPlan() {
                     <h1 className="m-4">Generate <span className="plan-text"> Plan </span></h1>
 
                     <div className="input-section">
-                        <p>{topic}</p>
-
                         <button className="input-button" onClick={handleUploadClick}>
                             <div className="input-box">
                                 <h2>

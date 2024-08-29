@@ -1,0 +1,90 @@
+.planDisplay{
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+    font-family: "Outfit", sans-serif;
+}
+
+.plan-page {
+    margin: 20px; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--pri);
+    overflow-y: auto; 
+    height: 100vh; 
+}
+
+.plan-page h1 {
+    color: #008cf2;
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.plan-page h3{
+    color: var(--background);
+}
+
+.week-section {
+    margin-bottom: 20px;
+}
+
+.goal-section {
+    background-color: var(--sec);
+    padding: 5px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.toggle-container {
+    margin-bottom: 10px;
+}
+
+.toggle-button {
+    background-color: #008cf2;
+    color: var(--text);
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 10px 0 0 10px;
+    justify-content: space-between;
+    font-size: 0.9em;
+}
+
+.toggle-button:hover {
+    background-color: var(--grey);
+}
+
+.content-container {
+    display: flex;
+    gap: 20px;
+}
+
+.daily-tasks-section, .evaluation-section {
+    padding: 15px;
+    border-radius: 8px;
+    flex: 1;
+}
+
+.daily-tasks-section {
+    background-color: #eaf6ff;
+}
+
+.evaluation-section {
+    background-color: #f9f9f9;
+}
+
+.daily-tasks-section ul,
+.evaluation-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.daily-tasks-section li,
+.evaluation-section li {
+    color: var(--background);
+    font-size: 1em;
+    margin-bottom: 5px;
+}

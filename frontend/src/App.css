@@ -275,16 +275,16 @@ html, body{
   justify-content: center;
   align-items: center;
   height: 80vh;
-  border: solid white;
+  /* border: solid white;
   width: 75vw;
-  border-radius: 30px;
+  border-radius: 30px; */
   /* border-image: linear-gradient(to right, var(--sec), var(--ter));
    */
-  background-image: linear-gradient(var(--background), var(--background)),
+  /* background-image: linear-gradient(var(--background), var(--background)),
     linear-gradient(to right, var(--sec), var(--ter));
   border: double 5px transparent;
   background-origin: border-box;
-  background-clip: content-box, border-box;
+  background-clip: content-box, border-box; */
 }
 
 .howto {
@@ -531,6 +531,7 @@ html, body{
 .plan-container, .flashcards-container, .planDisplay {
   display: flex;
   flex-direction: row;
+  overflow: hidden;
 }
 
 .plan-content > h1{

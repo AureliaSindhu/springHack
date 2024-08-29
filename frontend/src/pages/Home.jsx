@@ -13,6 +13,7 @@ import qiz from '../pics/homeicon.png';
 import bubble1 from '../pics/bubbleOne.png';
 import bubble2 from '../pics/bubbleTwo.png';
 import plan from '../pics/plan-step.png';
+import vidframe from '../pics/videoframe.png';
 
 import Qiz from './Qiz';
 import StudyPlan from './StudyPlan';
@@ -73,7 +74,8 @@ function App() {
             <div className="product">
                 {/* product vid  */}
                 <div className="vid-frame">
-                    <h1>Our main product</h1>
+                    {/* <h1>Our main product</h1> */}
+                    <img src={vidframe}/>
                 </div>
             </div>
 

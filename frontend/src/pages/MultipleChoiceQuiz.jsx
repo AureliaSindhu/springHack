@@ -20,7 +20,7 @@ const MultipleChoiceQuiz = ({ questions }) => {
             <h2>Multiple Choice Quiz</h2>
             {questions.map((question, questionIndex) => (
                 <div key={questionIndex} className="question-block">
-                    <p>{question.question}</p>
+                    <p className="q">{question.question}</p>
                     <ul className="options-list">
                         {question.options.map((option, answerIndex) => (
                             <li key={answerIndex}>
@@ -37,7 +37,7 @@ const MultipleChoiceQuiz = ({ questions }) => {
                             </li>
                         ))}
                     </ul>
-                    {showResults && (
+                    {/* {showResults && (
                         <p
                             className={`result ${
                                 selectedAnswers[questionIndex] === question.options.indexOf(question.answer)
@@ -49,7 +49,20 @@ const MultipleChoiceQuiz = ({ questions }) => {
                                 ? 'Correct!'
                                 : `Incorrect, the correct answer is ${question.answer}`}
                         </p>
+                    )} */}
+
+                    {showResults && (
+                        <p className={`result ${selectedAnswers[questionIndex] === question.options.indexOf(question.answer) ? 'correct' : 'incorrect'}`}>
+                            {selectedAnswers[questionIndex] === question.options.indexOf(question.answer)
+                                ? 'Correct!'
+                                : (
+                                    <>
+                                        Incorrect, the correct answer is <span className="correct-answer">{question.answer}</span>
+                                    </>
+                                )}
+                        </p>
                     )}
+
                 </div>
             ))}
             {!showResults && (

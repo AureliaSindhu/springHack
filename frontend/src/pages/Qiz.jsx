@@ -17,6 +17,7 @@ const Qiz = () => {
     const [flashcards, setFlashcards] = useState([]);
     const [multipleChoiceQuestions, setMultipleChoiceQuestions] = useState([]);
     const [downloadLink, setDownloadLink] = useState('');
+    const [loading, setLoading] = useState(false);
     const [iconVisible, setIconVisible] = useState(false);
     const fileInputRef = useRef(null);
     const navigate = useNavigate();
@@ -140,6 +141,8 @@ const Qiz = () => {
             return;
         }
 
+        setLoading(true); 
+
         setIconVisible(true);
 
         try {
@@ -160,6 +163,7 @@ const Qiz = () => {
             alert('An error occurred while generating the quiz. Please try again.');
         } finally {
             setIconVisible(false);
+            setLoading(false);
         }
     };
 

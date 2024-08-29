@@ -1,27 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import sideline from '../pics/side-line.png';
-
-const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+import './PlanPage.css';  
 
 const PlanPage = () => {
-    const [planColor] = React.useState('#008cf2');
+    const [planColor] = useState('#008cf2');
+    const [showGoal, setShowGoal] = useState(true);
+    const [showDailyTasks, setShowDailyTasks] = useState(true);
+    const [showEvaluation, setShowEvaluation] = useState(true);
     const location = useLocation();
     const { plan } = location.state || {};
 
-    if (!plan || !Array.isArray(plan.weeks)) {
+    if (!plan) {
         return <p>No plan available</p>;
     }
 
-    const weeks = plan.weeks.map((weekData, index) => ({
-        weekNumber: weekData.week_number || index + 1,
-        weekGoal: weekData.week_goal || 'No goal defined',
-        dailyTasks: weekData.daily_tasks || [],
-        evaluation: weekData.evaluation || [] 
+    // Extract and format weekly goals
+    const weeks = plan.weeklyGoals.map((goal, index) => ({
+        weekNumber: index + 1,
+        weekGoal: goal.goal || 'No goal defined',
+        dailyTasks: goal.tasks || [],
+        evaluation: plan.evaluationMethods || [] // Ensure this is the correct data structure
     }));
-
-    console.log(weeks);
 
     return (
         <div className="planDisplay">
@@ -33,35 +34,68 @@ const PlanPage = () => {
 
             <div className="plan-page">
                 <h1>Generated Study Plan</h1>
-                {weeks.map((week) => (
-                    <div key={week.weekNumber}>
-                        <h2>Week {week.weekNumber}</h2>
-                        <h3>Goal</h3>
-                        <p>{week.weekGoal}</p>
-                        <h3>Daily Tasks</h3>
-                        <ul>
-                            {week.dailyTasks.length > 0 ? (
-                                week.dailyTasks.map((task, index) => (
-                                    <li key={index}>
-                                        {task}
-                                    </li>
-                                ))
-                            ) : (
-                                <li>No daily tasks available</li>
+                {weeks.length > 0 ? (
+                    weeks.map((week) => (
+                        <div key={week.weekNumber} className="week-section">
+                            <h2>Week {week.weekNumber}</h2>
+                            
+                            {/* Goal Section */}
+                            {showGoal && (
+                                <div className="goal-section">
+                                    <h3>Goal</h3>
+                                    <p>{week.weekGoal}</p>
+                                </div>
                             )}
-                        </ul>
-                        <h3>Evaluation Criteria</h3>
-                        <ul>
-                            {week.evaluation.length > 0 ? (
-                                week.evaluation.map((evalItem, index) => (
-                                    <li key={index}>{evalItem}</li>
-                                ))
-                            ) : (
-                                <li>No evaluation criteria available</li>
-                            )}
-                        </ul>
-                    </div>
-                ))}
+
+                            {/* Content Container for Daily Tasks and Evaluation */}
+                            <div className="content-container">
+                                {showDailyTasks && (
+                                    <div className="daily-tasks-section">
+                                        <h3>Daily Tasks</h3>
+                                        <ul>
+                                            {week.dailyTasks.length > 0 ? (
+                                                week.dailyTasks.map((task, index) => (
+                                                    <li key={index}>
+                                                        {task}
+                                                    </li>
+                                                ))
+                                            ) : (
+                                                <li>No daily tasks available</li>
+                                            )}
+                                        </ul>
+                                    </div>
+                                )}
+
+                                {showEvaluation && (
+                                    <div className="evaluation-section">
+                                        <h3>Evaluation Criteria</h3>
+                                        <ul>
+                                            {week.evaluation.length > 0 ? (
+                                                week.evaluation.map((evalItem, index) => (
+                                                    <li key={index}>{evalItem}</li>
+                                                ))
+                                            ) : (
+                                                <li>No evaluation criteria available</li>
+                                            )}
+                                        </ul>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Toggle Buttons */}
+                            <div className="toggle-container">
+                                <button className="toggle-button" onClick={() => setShowDailyTasks(!showDailyTasks)}>
+                                    {showDailyTasks ? 'Hide Daily Tasks' : 'Show Daily Tasks'}
+                                </button>
+                                <button className="toggle-button" onClick={() => setShowEvaluation(!showEvaluation)}>
+                                    {showEvaluation ? 'Hide Evaluation Criteria' : 'Show Evaluation Criteria'}
+                                </button>
+                            </div>
+                        </div>
+                    ))
+                ) : (
+                    <p>No plans available</p>
+                )}
             </div>
         </div>
     );

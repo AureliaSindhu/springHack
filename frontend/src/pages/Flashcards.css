@@ -12,11 +12,6 @@
     padding: 20px;
 }
 
-.side-line{
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
 h1{
     font-size: 2.5rem;
     font-weight: bold;
@@ -116,7 +111,7 @@ h1{
 }
 
 .flashcard {
-    background-color: #fff;
+    background-color: var(--pri);
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 250px;
@@ -131,6 +126,7 @@ h1{
 
 .flashcard:hover {
     transform: scale(1.05);
+    background-color: var(--sec);
 }
 
 .question {
@@ -151,7 +147,7 @@ h1{
 
 .flashcard:hover .answer {
     display: block;
-    color: #007bff;
+    color: var(--text);
 }
 
 .flashcard:hover .question {
