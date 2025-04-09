@@ -1,5 +1,7 @@
-# Qiz 
-Powered by cutting-edge AI, Qiz adapts to your learning style, ensuring that you grasp every topic with ease and confidence.
+# [Qiz](https://devpost.com/software/qiz)
+### Powered by cutting-edge AI, Qiz adapts to your learning style, ensuring that you grasp every topic with ease and confidence.
+
+![Thumbnail](https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/003/004/757/datas/gallery.jpg)
 
 ## Inspiration 💫
 We found inspiration for our project by asking fellow students what they wished they had in their education journey. These students wished they had a tool they could use to learn and help them battle procrastination. A research shows **87% of college students report that their education is a significant source of stress**. That way, we hope our platform, Qiz, can start helping them. 
